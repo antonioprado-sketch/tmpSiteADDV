@@ -1,216 +1,262 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto | ADDV — Consultoría TI y Transformación Digital</title>
-  <meta name="description" content="Contacta a ADDV: completa el formulario o escríbenos directo por WhatsApp para hablar de tu proyecto de consultoría tecnológica y transformación digital." />
-  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
-  <link rel="alternate icon" type="image/x-icon" href="./favicon.ico" />
-  <link rel="canonical" href="https://www.addv.mx/contacto" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contacto | ADDV — Consultoría TI y Transformación Digital</title>
+<meta name="description" content="Contacta a ADDV: completa el formulario o escríbenos directo por WhatsApp para hablar de tu proyecto de consultoría tecnológica y transformación digital." />
+<link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+<link rel="alternate icon" type="image/x-icon" href="./favicon.ico" />
+<link rel="canonical" href="https://www.addv.mx/contacto" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/css/tokens.css" />
-  <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/contacto.css" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#7c839b", "surface-bright": "#f7f9fb", "surface-container-lowest": "#ffffff",
+          "surface-container-highest": "#e0e3e5", "on-primary-fixed": "#131b2e", "error-container": "#ffdad6",
+          "background": "#f7f9fb", "inverse-surface": "#2d3133", "surface-tint": "#565e74",
+          "secondary-fixed-dim": "#adc6ff", "surface-variant": "#e0e3e5", "on-surface": "#191c1e",
+          "tertiary-fixed": "#d3e4fe", "on-primary-fixed-variant": "#3f465c", "primary": "#000000",
+          "outline": "#76777d", "on-tertiary": "#ffffff", "on-error-container": "#93000a",
+          "surface": "#f7f9fb", "tertiary-container": "#0b1c30", "on-secondary-container": "#fefcff",
+          "on-error": "#ffffff", "on-tertiary-fixed": "#0b1c30", "surface-dim": "#d8dadc",
+          "primary-container": "#131b2e", "surface-container-low": "#f2f4f6", "on-tertiary-fixed-variant": "#38485d",
+          "on-secondary": "#ffffff", "on-background": "#191c1e", "on-primary": "#ffffff",
+          "on-secondary-fixed": "#001a42", "secondary": "#0058be", "on-surface-variant": "#45464d",
+          "on-tertiary-container": "#75859d", "inverse-primary": "#bec6e0", "on-secondary-fixed-variant": "#004395",
+          "inverse-on-surface": "#eff1f3", "tertiary": "#000000", "surface-container-high": "#e6e8ea",
+          "surface-container": "#eceef0", "tertiary-fixed-dim": "#b7c8e1", "error": "#ba1a1a",
+          "primary-fixed-dim": "#bec6e0", "primary-fixed": "#dae2fd", "outline-variant": "#c6c6cd",
+          "secondary-container": "#2170e4", "secondary-fixed": "#d8e2ff"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        "spacing": {
+          "margin-desktop": "48px", "base": "4px", "xs": "4px", "sm": "8px", "lg": "24px",
+          "gutter": "24px", "xl": "32px", "md": "16px", "margin-mobile": "16px"
+        },
+        "fontFamily": {
+          "headline-lg": ["Lato"], "headline-xl": ["Lato"], "label-sm": ["Lato"], "headline-md": ["Lato"],
+          "headline-lg-mobile": ["Lato"], "label-md": ["Lato"], "body-lg": ["Lato"], "body-sm": ["Lato"], "body-md": ["Lato"]
+        },
+        "fontSize": {
+          "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+          "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "600" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+          "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+          "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "600" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Lato', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  [aria-invalid="true"] { border-color: #ba1a1a !important; }
+  .hp-field { position: absolute; width: 1px; height: 1px; overflow: hidden; left: -9999px; }
+  .nav-mobile { display: none; }
+  .nav-mobile.is-open { display: flex; }
+  @media (min-width: 768px) { .nav-mobile { display: none !important; } }
+</style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-lg focus:py-sm" href="#main">Saltar al contenido</a>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="./index.html">
-        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="40" height="40" rx="8" fill="#0A1628"/>
-          <path d="M20 10v20M10 20h20" stroke="#C9A227" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        ADDV
-      </a>
+<header class="bg-surface border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-md w-full max-w-7xl mx-auto">
+<a class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface" href="./index.html">
+<svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect width="40" height="40" rx="8" fill="#000000"/>
+<path d="M20 10v20M10 20h20" stroke="#0058be" stroke-width="3" stroke-linecap="round"/>
+</svg>
+ADDV
+</a>
+<nav class="hidden md:flex gap-lg items-center" aria-label="Principal">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="./index.html">Inicio</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="./servicios.html">Servicios</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="./productos.html">Productos</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="./casos-exito.html">Casos de éxito</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md" href="./nosotros.html">Nosotros</a>
+<a class="text-secondary border-b-2 border-secondary pb-1 font-body-md text-body-md" href="./contacto.html" aria-current="page">Contacto</a>
+</nav>
+<a class="nav-cta hidden md:block bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded hover:bg-on-primary-fixed transition-colors" href="./contacto.html">Hablemos</a>
+<button class="nav-toggle md:hidden text-on-surface" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+<span class="material-symbols-outlined" aria-hidden="true">menu</span>
+</button>
+</div>
+<nav class="nav-mobile flex-col gap-xs px-margin-mobile pb-md" id="mobile-menu" aria-label="Menú móvil">
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low" href="./index.html">Inicio</a>
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low" href="./servicios.html">Servicios</a>
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low" href="./productos.html">Productos</a>
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low" href="./casos-exito.html">Casos de éxito</a>
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low" href="./nosotros.html">Nosotros</a>
+<a class="block px-sm py-sm rounded font-body-md text-body-md text-secondary bg-surface-container-low" href="./contacto.html" aria-current="page">Contacto</a>
+<a class="mt-sm inline-block bg-primary text-on-primary text-center font-label-md text-label-md px-lg py-sm rounded" href="./contacto.html">Hablemos</a>
+</nav>
+</header>
 
-      <nav class="nav-links" aria-label="Principal">
-        <a href="./index.html">Inicio</a>
-        <a href="./servicios.html">Servicios</a>
-        <a href="./productos.html">Productos</a>
-        <a href="./casos-exito.html">Casos de éxito</a>
-        <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html" aria-current="page">Contacto</a>
-      </nav>
+<main class="flex-grow" id="main">
+<section class="bg-surface-container-lowest border-b border-outline-variant">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-xl pb-xl text-center">
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-sm">Contacto</p>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface mb-md">Hablemos de tu proyecto</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Completa el formulario y te contactaremos en menos de un día hábil, o escríbenos directo por WhatsApp si prefieres una respuesta inmediata.</p>
+</div>
+</section>
 
-      <a class="btn btn-primary nav-cta" href="./contacto.html">Hablemos</a>
+<section class="py-xl md:py-[80px] px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
+<!-- Form -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(15,23,42,0.05)] border border-outline-variant p-lg md:p-xl">
+<form class="grid grid-cols-1 sm:grid-cols-2 gap-md" id="contact-form" novalidate="">
+<div class="hp-field" aria-hidden="true">
+<label for="hp-website">No llenar este campo</label>
+<input type="text" id="hp-website" name="hp-website" tabindex="-1" autocomplete="off" />
+</div>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
+<input class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" id="f-nombre" name="nombre" type="text" required="" autocomplete="name" aria-describedby="err-nombre" />
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-nombre" role="alert"></p>
+</div>
 
-    <div class="container">
-      <nav class="nav-mobile" id="mobile-menu" aria-label="Menú móvil">
-        <a href="./index.html">Inicio</a>
-        <a href="./servicios.html">Servicios</a>
-        <a href="./productos.html">Productos</a>
-        <a href="./casos-exito.html">Casos de éxito</a>
-        <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html" aria-current="page">Contacto</a>
-        <a class="btn btn-primary nav-mobile-cta" href="./contacto.html">Hablemos</a>
-      </nav>
-    </div>
-  </header>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-correo">Correo electrónico <span aria-hidden="true">*</span></label>
+<input class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" id="f-correo" name="correo" type="email" required="" autocomplete="email" aria-describedby="err-correo" />
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-correo" role="alert"></p>
+</div>
 
-  <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Contacto</p>
-        <h1>Hablemos de tu proyecto</h1>
-        <p class="page-lede">
-          Completa el formulario y te contactaremos en menos de un día
-          hábil, o escríbenos directo por WhatsApp si prefieres una
-          respuesta inmediata.
-        </p>
-      </div>
-    </section>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-telefono">Teléfono <span aria-hidden="true">*</span></label>
+<input class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" id="f-telefono" name="telefono" type="tel" required="" autocomplete="tel" aria-describedby="err-telefono" />
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-telefono" role="alert"></p>
+</div>
 
-    <section class="section">
-      <div class="container contact-grid">
-        <form class="contact-form" id="contact-form" novalidate>
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-website">No llenar este campo</label>
-            <input type="text" id="hp-website" name="hp-website" tabindex="-1" autocomplete="off" />
-          </div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-empresa">Empresa <span aria-hidden="true">*</span></label>
+<input class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" id="f-empresa" name="empresa" type="text" required="" autocomplete="organization" aria-describedby="err-empresa" />
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-empresa" role="alert"></p>
+</div>
 
-          <div class="form-field">
-            <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
-            <input type="text" id="f-nombre" name="nombre" required autocomplete="name" aria-describedby="err-nombre" />
-            <p class="field-error" id="err-nombre" role="alert"></p>
-          </div>
+<div class="flex flex-col gap-xs sm:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-sitio">Sitio web <span aria-hidden="true">*</span></label>
+<input class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" id="f-sitio" name="sitio" type="url" required="" placeholder="https://ejemplo.com" autocomplete="url" aria-describedby="err-sitio" />
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-sitio" role="alert"></p>
+</div>
 
-          <div class="form-field">
-            <label for="f-correo">Correo electrónico <span aria-hidden="true">*</span></label>
-            <input type="email" id="f-correo" name="correo" required autocomplete="email" aria-describedby="err-correo" />
-            <p class="field-error" id="err-correo" role="alert"></p>
-          </div>
+<div class="flex flex-col gap-xs sm:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="f-mensaje">Mensaje <span aria-hidden="true">*</span></label>
+<textarea class="w-full border-outline-variant rounded font-body-md text-body-md focus:ring-2 focus:ring-secondary focus:border-secondary transition-all resize-none" id="f-mensaje" name="mensaje" rows="4" required="" aria-describedby="err-mensaje"></textarea>
+<p class="font-body-sm text-body-sm text-error min-h-[1.2em]" id="err-mensaje" role="alert"></p>
+</div>
 
-          <div class="form-field">
-            <label for="f-telefono">Teléfono <span aria-hidden="true">*</span></label>
-            <input type="tel" id="f-telefono" name="telefono" required autocomplete="tel" aria-describedby="err-telefono" />
-            <p class="field-error" id="err-telefono" role="alert"></p>
-          </div>
+<div class="sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-md mt-xs">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-md rounded hover:bg-on-primary-fixed transition-colors flex items-center justify-center gap-sm" type="submit">
+<span class="material-symbols-outlined text-[18px]" aria-hidden="true">send</span>
+Enviar mensaje
+</button>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Se abrirá WhatsApp con tu mensaje ya redactado.</p>
+</div>
+</form>
+</div>
 
-          <div class="form-field">
-            <label for="f-empresa">Empresa <span aria-hidden="true">*</span></label>
-            <input type="text" id="f-empresa" name="empresa" required autocomplete="organization" aria-describedby="err-empresa" />
-            <p class="field-error" id="err-empresa" role="alert"></p>
-          </div>
+<!-- Contact info -->
+<div class="flex flex-col gap-gutter">
+<div class="bg-primary rounded-xl p-lg text-on-primary">
+<h2 class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-xs">WhatsApp directo</h2>
+<a class="font-body-md text-body-md font-bold hover:text-secondary-fixed-dim transition-colors" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">+52 55 3994 4697</a>
+</div>
+<div class="bg-primary rounded-xl p-lg text-on-primary">
+<h2 class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-xs">Correo</h2>
+<a class="font-body-md text-body-md font-bold hover:text-secondary-fixed-dim transition-colors" href="mailto:contacto@addv.mx">contacto@addv.mx</a>
+</div>
+<div class="bg-primary rounded-xl p-lg text-on-primary">
+<h2 class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-xs">Oficina principal</h2>
+<p class="font-body-sm text-body-sm text-inverse-primary mb-xs">Homero 229, Master Suite 3, Privado 5<br />Polanco, Ciudad de México, 11560</p>
+<a class="font-body-md text-body-md font-bold hover:text-secondary-fixed-dim transition-colors" href="tel:+525552542235">+52 (55) 5254 2235</a>
+</div>
+<div class="bg-primary rounded-xl p-lg text-on-primary">
+<h2 class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-xs">Oficina adicional</h2>
+<p class="font-body-sm text-body-sm text-inverse-primary">C. W. A. Mozart 555<br />La Loma, 58290 Morelia, Mich.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
 
-          <div class="form-field form-field-full">
-            <label for="f-sitio">Sitio web <span aria-hidden="true">*</span></label>
-            <input type="url" id="f-sitio" name="sitio" required placeholder="https://ejemplo.com" autocomplete="url" aria-describedby="err-sitio" />
-            <p class="field-error" id="err-sitio" role="alert"></p>
-          </div>
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-xl w-full max-w-7xl mx-auto">
+<div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface mb-md">
+<svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect width="40" height="40" rx="8" fill="#0058be"/>
+<path d="M20 10v20M10 20h20" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+</svg>
+ADDV
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[32ch]">Transformamos negocios. Agregamos valor que trasciende.</p>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Navegación</h3>
+<ul class="flex flex-col gap-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="./servicios.html">Servicios</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="./productos.html">Productos</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="./casos-exito.html">Casos de éxito</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="./nosotros.html">Nosotros</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Contacto</h3>
+<ul class="flex flex-col gap-sm font-body-sm text-body-sm text-on-surface-variant">
+<li>Oficina principal — Homero 229, Master Suite 3, Privado 5,<br />Polanco, CDMX, 11560.</li>
+<li>Oficina adicional — C. W. A. Mozart 555,<br />La Loma, 58290 Morelia, Mich.</li>
+<li><a class="hover:text-secondary transition-colors" href="tel:+525552542235">Tel. +52 (55) 5254 2235</a></li>
+<li><a class="hover:text-secondary transition-colors" href="mailto:contacto@addv.mx">contacto@addv.mx</a></li>
+<li><a class="hover:text-secondary transition-colors" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">WhatsApp +52 55 3994 4697</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Síguenos</h3>
+<div class="flex gap-sm">
+<a class="w-11 h-11 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-secondary hover:text-on-secondary transition-colors" href="https://www.linkedin.com/company/addv-agile-development-and-design-value" aria-label="LinkedIn de ADDV" target="_blank" rel="noopener noreferrer">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9Z"/></svg>
+</a>
+<a class="w-11 h-11 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-secondary hover:text-on-secondary transition-colors" href="https://www.facebook.com/Agile-Development-Design-Value-102639798124712/" aria-label="Facebook de ADDV" target="_blank" rel="noopener noreferrer">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.35C16.24 4.32 15.36 4.24 14.33 4.24c-2.16 0-3.63 1.3-3.63 3.7v2.06H8v3h2.7V21h2.8Z"/></svg>
+</a>
+<a class="w-11 h-11 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-secondary hover:text-on-secondary transition-colors" href="https://www.tiktok.com/@agileddv" aria-label="TikTok de ADDV" target="_blank" rel="noopener noreferrer">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.1 1.9 3.6 4 3.9v3c-1.5-.03-2.9-.5-4-1.3v6.5a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6.02.9.07v3.1a2.6 2.6 0 1 0 1.8 2.47V3h2.9Z"/></svg>
+</a>
+<a class="w-11 h-11 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-secondary hover:text-on-secondary transition-colors" href="https://www.youtube.com/channel/UCJQE6Y1hZrYwsISVW8yZ-6g" aria-label="YouTube de ADDV" target="_blank" rel="noopener noreferrer">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2.2 9 2.2 10.7v1.5c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.1c.8.8 1.9.8 2.4.9 1.7.2 7.4.2 7.4.2s3.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.8.2-3.6v-1.5c0-1.8-.2-3.5-.2-3.5ZM9.9 14.6V8.8l5.4 2.9-5.4 2.9Z"/></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto border-t border-outline-variant py-lg flex flex-col md:flex-row justify-between items-center gap-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Agile Development and Design + Value, S.A. de C.V. Todos los derechos reservados.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-secondary transition-colors" href="https://www.addv.mx/aviso-privacidad" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a> · Términos y condiciones</span>
+</div>
+</footer>
 
-          <div class="form-field form-field-full">
-            <label for="f-mensaje">Mensaje <span aria-hidden="true">*</span></label>
-            <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="err-mensaje"></textarea>
-            <p class="field-error" id="err-mensaje" role="alert"></p>
-          </div>
+<a class="fixed right-lg bottom-lg z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0px_12px_32px_rgba(15,23,42,0.2)] hover:scale-105 transition-transform" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+<svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.28 2 11.5c0 2.02.66 3.9 1.8 5.44L2 22l5.24-1.72A10.4 10.4 0 0 0 12 21c5.52 0 10-4.28 10-9.5S17.52 2 12 2Zm0 17.3c-1.62 0-3.13-.46-4.4-1.26l-.32-.2-3.1 1.02 1.03-3-.21-.32A7.9 7.9 0 0 1 4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5-3.58 7.8-8 7.8Zm4.4-5.86c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
 
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-            <p class="form-hint">Se abrirá WhatsApp con tu mensaje ya redactado.</p>
-          </div>
-        </form>
-
-        <aside class="contact-info" aria-label="Información de contacto">
-          <div>
-            <h2>WhatsApp directo</h2>
-            <a class="contact-link" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">+52 55 3994 4697</a>
-          </div>
-          <div>
-            <h2>Correo</h2>
-            <a class="contact-link" href="mailto:contacto@addv.mx">contacto@addv.mx</a>
-          </div>
-          <div>
-            <h2>Oficina principal</h2>
-            <p>Homero 229, Master Suite 3, Privado 5<br />Polanco, Ciudad de México, 11560</p>
-            <a class="contact-link" href="tel:+525552542235">+52 (55) 5254 2235</a>
-          </div>
-          <div>
-            <h2>Oficina adicional</h2>
-            <p>C. W. A. Mozart 555<br />La Loma, 58290 Morelia, Mich.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="./index.html" style="color: var(--color-paper);">
-          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="40" height="40" rx="8" fill="#C9A227"/>
-            <path d="M20 10v20M10 20h20" stroke="#0A1628" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          ADDV
-        </a>
-        <p style="margin-top: var(--sp-3); max-width: 32ch;">Transformamos negocios. Agregamos valor que trasciende.</p>
-      </div>
-
-      <div>
-        <h3>Navegación</h3>
-        <ul class="footer-links" style="margin-top: var(--sp-3);">
-          <li><a href="./servicios.html">Servicios</a></li>
-          <li><a href="./productos.html">Productos</a></li>
-          <li><a href="./casos-exito.html">Casos de éxito</a></li>
-          <li><a href="./nosotros.html">Nosotros</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Contacto</h3>
-        <ul class="footer-links" style="margin-top: var(--sp-3);">
-          <li>Oficina principal — Homero 229, Master Suite 3, Privado 5,<br />Polanco, CDMX, 11560.</li>
-          <li>Oficina adicional — C. W. A. Mozart 555,<br />La Loma, 58290 Morelia, Mich.</li>
-          <li><a href="tel:+525552542235">Tel. +52 (55) 5254 2235</a></li>
-          <li><a href="mailto:contacto@addv.mx">contacto@addv.mx</a></li>
-          <li><a href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">WhatsApp +52 55 3994 4697</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Síguenos</h3>
-        <div class="social-links" style="margin-top: var(--sp-3);">
-          <a href="https://www.linkedin.com/company/addv-agile-development-and-design-value" aria-label="LinkedIn de ADDV" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.58-2.33 3.2V21h-4V9Z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/Agile-Development-Design-Value-102639798124712/" aria-label="Facebook de ADDV" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.35C16.24 4.32 15.36 4.24 14.33 4.24c-2.16 0-3.63 1.3-3.63 3.7v2.06H8v3h2.7V21h2.8Z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@agileddv" aria-label="TikTok de ADDV" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.1 1.9 3.6 4 3.9v3c-1.5-.03-2.9-.5-4-1.3v6.5a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6.02.9.07v3.1a2.6 2.6 0 1 0 1.8 2.47V3h2.9Z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/channel/UCJQE6Y1hZrYwsISVW8yZ-6g" aria-label="YouTube de ADDV" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2.2 9 2.2 10.7v1.5c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.1c.8.8 1.9.8 2.4.9 1.7.2 7.4.2 7.4.2s3.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.8.2-3.6v-1.5c0-1.8-.2-3.5-.2-3.5ZM9.9 14.6V8.8l5.4 2.9-5.4 2.9Z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <span>© 2026 Agile Development and Design + Value, S.A. de C.V. Todos los derechos reservados.</span>
-      <span><a href="https://www.addv.mx/aviso-privacidad" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a> · Términos y condiciones</span>
-    </div>
-  </footer>
-
-  <a class="wa-float" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.28 2 11.5c0 2.02.66 3.9 1.8 5.44L2 22l5.24-1.72A10.4 10.4 0 0 0 12 21c5.52 0 10-4.28 10-9.5S17.52 2 12 2Zm0 17.3c-1.62 0-3.13-.46-4.4-1.26l-.32-.2-3.1 1.02 1.03-3-.21-.32A7.9 7.9 0 0 1 4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5-3.58 7.8-8 7.8Zm4.4-5.86c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
-  </a>
-
-  <script type="module" src="./assets/js/main.js"></script>
-  <script type="module" src="./assets/js/contacto.js"></script>
+<script type="module" src="./assets/js/main.js"></script>
+<script type="module" src="./assets/js/contacto.js"></script>
 </body>
 </html>
