@@ -1,17 +1,72 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 6 completado (2026-08-03) — checklist final
-de accesibilidad/performance sobre las 6 páginas. **El sitio está
-funcionalmente completo** (las 6 páginas del plan original existen, sin
-links internos rotos). Pendiente: revisión visual real en navegador y
-Lighthouse — ver "Pendiente" abajo, bloqueado por no tener un servidor
-local funcional en este entorno.
+Última actualización: **Rebrand completo (2026-08-03)** — las 6 páginas
+migradas de CSS propio (tokens.css/main.css/*.css, navy+oro, Fraunces+
+Manrope) a Tailwind CDN con paleta Material Design 3 (negro+azul
+`#0058be`, Lato), por decisión explícita de Tony a partir de mockups de
+Stitch. Repo ya vive en
+[github.com/antonioprado-sketch/tmpSiteADDV](https://github.com/antonioprado-sketch/tmpSiteADDV)
+(remoto agregado y sincronizado — commits `95d6898` rebrand,
+`c8d4636` fix de accesibilidad post-rebrand).
+
+## Rebrand — qué cambió y qué no
+
+**Se reemplazó:**
+- Sistema CSS: `assets/css/tokens.css`/`main.css`/`home.css`/`nosotros.css`/
+  `contacto.css`/`servicios.css`/`productos.css`/`casos-exito.css`
+  **eliminados** (ya no los referencia ninguna página). Ahora: Tailwind CDN
+  + un bloque `<script id="tailwind-config">` idéntico repetido en las 6
+  páginas (mismo criterio manual que nav/footer — sin motor de plantillas).
+- Paleta: navy+oro → negro `#000000` + azul `#0058be` (tokens Material
+  Design 3, ver `CLAUDE.md`).
+- Tipografía: Fraunces (display) + Manrope (texto) → Lato única.
+- Iconografía: SVG inline propios → Material Symbols Outlined para iconos
+  genéricos de UI (menú, check, send, etc.).
+- El sitio pasó de cero imágenes de terceros a ~40 fotos de stock externas
+  (`lh3.googleusercontent.com`, URLs de los mockups de Stitch) en hero de
+  home y nosotros — decisión explícita de Tony.
+- El mark "+V" propio se conservó (Tony no dio logo real todavía),
+  recoloreado a la paleta nueva.
+
+**Se conservó sin cambios:**
+- Todo el contenido real ya aprobado: 7 servicios (con bullets), 3
+  clientes reales (Invex, Iberdrola/Cox, ADITMEX) + 4 ejemplos
+  ilustrativos, 2 productos, datos de contacto/oficinas/redes.
+- `nav.js`/`reveal.js`/`contacto.js` — sin tocar. El HTML nuevo conserva
+  las clases/ids exactos que estos scripts esperan (`.nav-toggle`,
+  `#mobile-menu`, `.is-open`, `.reveal`/`.is-visible`, ids de campos de
+  formulario `f-nombre`/`f-correo`/etc. y honeypot `hp-website`).
+- El flujo de contacto sigue siendo 100% WhatsApp sin backend.
+
+**Verificado después del rebrand:**
+- 10 pares de contraste texto/fondo de la paleta nueva calculados
+  (fórmula WCAG) — todos pasan AA (mínimo 5.88:1). Sin fixes necesarios,
+  a diferencia del checklist del Segmento 6 (que sí encontró fallos en la
+  paleta vieja).
+- `.nav-toggle` (botón de menú móvil) no tenía tamaño explícito en el
+  primer pase del rebrand — el ícono quedaba suelto sin caja, bajo
+  44×44px. Corregido (`w-11 h-11`) en las 6 páginas.
+- Sintaxis JS (`node --check`) en los 4 módulos — sin errores.
+- Jerarquía de encabezados (`h1`→`h2`→`h3`, sin saltos), `lang="es"`,
+  `id="main"`/`id="mobile-menu"` únicos, 0 links internos rotos, anchors
+  de servicios (`#desarrollo-de-software` etc.) y pares label/id del
+  formulario — todo verificado por página, igual que en el Segmento 6.
+
+**Pendiente / no verificado:**
+- Lighthouse y revisión visual real en navegador — sigue bloqueado por no
+  tener un intérprete Python funcional en el PATH de este entorno.
+- Tailwind CDN es una dependencia de red en runtime que el sitio no tenía
+  antes (antes cargaba con CSS propio, funcionaba 100% offline salvo
+  Google Fonts). Si `file://` sin internet es un caso de uso real para
+  Tony, esto es una regresión a tener en cuenta.
+
+## Historia previa (Segmentos 1–6, arquitectura CSS propia — ya reemplazada)
 
 Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
 (`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
 (no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
 inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
-rastro — remoto pendiente de que Tony dé la URL del repo.
+rastro.
 
 ## Qué existe (Segmento 6 — Checklist final de calidad)
 

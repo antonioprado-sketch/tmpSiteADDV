@@ -5,17 +5,20 @@ para GitHub Pages.
 
 ## Requisitos
 
-Ninguno. No requiere Node, npm, Docker, ni ningún proceso de build.
+Ninguno para desarrollar (no requiere Node, npm, Docker, ni ningún
+proceso de build). **Sí requiere conexión a internet al abrir el sitio**
+(en `file://` o publicado): carga Tailwind CDN, Google Fonts y ~40 fotos
+de stock externas. Antes del rebrand de 2026-08-03 el sitio funcionaba
+100% offline; ya no.
 
 ## Cómo verlo localmente
 
-**Opción 1 — directo (la forma en que debe funcionar siempre):**
+**Opción 1 — directo:**
 
 1. Clona o descarga este repositorio.
 2. Haz doble clic sobre `index.html`.
-3. El sitio se abre en tu navegador vía `file://` y funciona completo:
-   navegación, menú móvil, animaciones, y (cuando estén los segmentos
-   correspondientes) formulario de contacto.
+3. El sitio se abre en tu navegador vía `file://` — necesita internet para
+   cargar Tailwind CDN/fuentes/fotos, pero no necesita servidor local.
 
 **Opción 2 — servidor local (opcional, solo conveniencia de desarrollo):**
 
@@ -23,10 +26,6 @@ Ninguno. No requiere Node, npm, Docker, ni ningún proceso de build.
 python3 -m http.server 8000
 # abre http://localhost:8000
 ```
-
-No es necesario para que el sitio funcione — es solo una alternativa si tu
-navegador restringe algo bajo `file://` (poco común con este sitio, ya que
-no usa `fetch` a assets locales).
 
 ## Cómo publicarlo en GitHub Pages
 
@@ -36,8 +35,10 @@ no usa `fetch` a assets locales).
 3. Todas las rutas del sitio son relativas (`./assets/...`), así que
    funciona igual si el repo se publica en la raíz de un dominio o en un
    subdirectorio (`usuario.github.io/repo/`).
-4. Verifica que cargue: la página de inicio, cada hoja de estilos
-   (`assets/css/*.css`), cada script (`assets/js/*.js`), y el favicon.
+4. Verifica que cargue: la página de inicio, cada script (`assets/js/*.js`)
+   y el favicon. El estilo visual depende de que Tailwind CDN y Google
+   Fonts carguen desde internet (no hay CSS propio que sirva de
+   respaldo).
 
 ## Estructura del proyecto
 
@@ -51,16 +52,13 @@ no usa `fetch` a assets locales).
 ├── casos-exito.html      Casos de éxito (clientes reales + ejemplos)
 │                         (las 6 páginas del sitio ya existen)
 ├── assets/
-│   ├── css/               tokens.css (paleta/tipografía + colores
-│   │                       verificados para contraste AA), main.css
-│   │                       (compartido: header/nav/footer/botones/
-│   │                       page-hero/formularios/cta-band/wa-float),
-│   │                       home.css, nosotros.css, contacto.css,
-│   │                       servicios.css, productos.css, casos-exito.css
-│   │                       (específicos de cada página)
+│   ├── css/               vacío — el CSS propio se eliminó en el rebrand
+│   │                       de 2026-08-03 (ver project_state.md); el sitio
+│   │                       usa Tailwind CDN con config inline por página
 │   ├── js/                 main.js (nav+reveal, todas las páginas),
 │   │                       nav.js, reveal.js, contacto.js (solo en
-│   │                       contacto.html — validación + WhatsApp)
+│   │                       contacto.html — validación + WhatsApp).
+│   │                       Sin cambios en el rebrand.
 │   ├── images/, icons/, fonts/, videos/
 ├── prompts/
 │   └── image-prompts.md
@@ -74,12 +72,15 @@ no usa `fetch` a assets locales).
 
 ## Estado actual
 
-Sitio funcionalmente completo: las 6 páginas existen, sin links internos
-rotos, con checklist de accesibilidad AA y performance ya auditado (ver
-`project_state.md`, Segmento 6). Pendiente: revisión visual real en
-navegador y Lighthouse — no se pudo levantar un servidor local en el
-entorno donde se construyó (sin intérprete Python real en el PATH).
-Recomendado antes de publicar en producción.
+Sitio funcionalmente completo y publicado en GitHub:
+[github.com/antonioprado-sketch/tmpSiteADDV](https://github.com/antonioprado-sketch/tmpSiteADDV).
+Rebrand visual completo (2026-08-03): Tailwind CDN + Material Design 3
+(negro+azul, Lato) en vez del CSS propio anterior — ver `project_state.md`
+para el detalle. Sin links internos rotos, contraste AA verificado.
+Pendiente: revisión visual real en navegador y Lighthouse — no se pudo
+levantar un servidor local en el entorno donde se construyó (sin
+intérprete Python real en el PATH). Recomendado antes de publicar en
+producción.
 
 Ver `project_state.md` para el detalle completo de qué está construido,
 qué decisiones ya se tomaron, y qué queda pendiente de confirmar.

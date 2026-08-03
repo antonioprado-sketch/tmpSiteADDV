@@ -51,20 +51,38 @@ archivo actualizados al cerrar cada segmento.
 
 ## Convenciones de código
 
-- CSS: variables/tokens en `assets/css/tokens.css`, nunca colores/tamaños
-  hardcodeados repetidos en otros archivos. Un archivo CSS por página para
-  estilos específicos (`home.css`, `servicios.css`, ...), más `main.css`
-  compartido.
-- JS: un módulo por responsabilidad (`nav.js`, `reveal.js`, ...),
-  importados desde `main.js` por página. Sin dependencias externas salvo
-  las listadas como permitidas.
+- **Sistema visual (2026-08-03, rebrand explícito de Tony):** Tailwind CDN
+  (`cdn.tailwindcss.com?plugins=forms,container-queries`) + un bloque
+  `<script id="tailwind-config">` con la config Material Design 3 (paleta
+  negro `#000000` + azul `#0058be`, radios, spacing, tipografía). Ya no
+  existe `assets/css/*.css` propio — se eliminó (tokens.css, main.css,
+  home.css, etc.) porque Tailwind CDN cubre todo. El bloque de config se
+  repite **idéntico** en las 6 páginas HTML (mismo criterio de repetición
+  manual que nav/footer, no hay motor de plantillas) — si cambia la
+  paleta/tipografía, hay que editar las 6 páginas.
+- Excepciones fuera de Tailwind, en un `<style>` inline por página (mismo
+  bloque repetido en las 6): `.reveal`/`.is-visible` (scroll reveal),
+  `.nav-mobile`/`.is-open` (menú móvil, ver abajo), `[aria-invalid="true"]`
+  y `.hp-field` (solo en `contacto.html`).
+- JS: un módulo por responsabilidad (`nav.js`, `reveal.js`, `contacto.js`),
+  importados desde `main.js` por página. `nav.js`/`reveal.js` no cambiaron
+  con el rebrand — dependen de las clases `.nav-toggle`/`#mobile-menu`/
+  `.is-open` y `.reveal`/`.is-visible`, que se conservaron tal cual en el
+  HTML nuevo. Sin dependencias externas salvo las listadas como
+  permitidas.
 - Nav y footer se repiten manualmente en cada página HTML (no hay motor de
   plantillas en un sitio 100% estático) — al editar nav/footer, replicar el
   cambio en todas las páginas existentes.
-- Marca: mark "+V" en SVG inline (ver `index.html`), paleta navy
-  (`--color-navy-950` etc.) + oro (`--color-gold-500` etc.), tipografía
-  Fraunces (display) + Manrope (texto). No usar Inter/Roboto/Arial como
-  tipografía única.
+- Marca: mark "+V" en SVG inline (ver `index.html`), recoloreado a
+  negro/azul (antes navy+oro). Tipografía Lato (antes Fraunces+Manrope).
+  Iconografía con Material Symbols Outlined (`<span
+  class="material-symbols-outlined">`) para iconos genéricos de UI; el
+  ícono de WhatsApp del botón flotante se conserva como SVG inline propio
+  por reconocibilidad de marca.
+- El sitio ahora usa ~40 fotos de stock externas (`lh3.googleusercontent.com`,
+  URLs de los mockups de Stitch) en hero de home/nosotros — decisión
+  explícita de Tony (antes el sitio era 100% SVG inline, cero imágenes de
+  terceros). Todas llevan `alt` descriptivo.
 - No reproducir logotipos reales de clientes (Invex, Iberdrola/Cox, etc.)
   sin autorización explícita — usar tratamiento tipográfico en texto hasta
   tener permiso y archivo de logo oficial.
@@ -80,6 +98,7 @@ python3 -m http.server 8000
 node --check assets/js/main.js
 node --check assets/js/nav.js
 node --check assets/js/reveal.js
+node --check assets/js/contacto.js
 ```
 
 No hay `npm test` ni suite de pruebas automatizada todavía — este es un
