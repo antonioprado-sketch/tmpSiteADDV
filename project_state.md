@@ -324,24 +324,38 @@ pendientes" abajo.
 
 ## Decisiones pendientes de confirmar con Tony
 
-- **Abierta desde Segmento 2/3:** el teaser de servicios en home (5
-  tarjetas, copy corto/genérico) quedó desactualizado frente a los 7
-  servicios reales ya usados en `servicios.html` (con copy más largo y
-  específico). ¿Se actualiza el teaser de home a los mismos 7 (o una
-  selección de ellos con el copy real), o se deja como resumen aparte?
+- **Resuelta (2026-08-03):** teaser de servicios en home actualizado a
+  los 7 servicios reales (antes 5, copy genérico) — ver detalle abajo.
 - **Resuelta en Segmento 3:** botón "Hablemos" en el header — sí, se
-  agregó a las 4 páginas.
-- **Sigue abierta:** `localhost:8080` tiene un ítem de nav "Recursos"
-  (blog, guías, webinars, plantillas, FAQ) que no existe en el plan
-  original de 6 páginas de este sitio estático — no se agregó (crearía un
-  link roto sin página destino). ¿Se agrega al alcance como página nueva,
-  o se deja fuera?
-- Si se debe reemplazar el mark "+V" en SVG por un logo oficial real (no se
-  proporcionó archivo de logo).
+  agregó a las 4 páginas (ahora 6).
+- **Resuelta (2026-08-03):** ítem de nav "Recursos" — se deja fuera del
+  alcance, no se crea página ni link.
+- **Abierta:** reemplazar el mark "+V" en SVG por el logo oficial real de
+  ADDV — Tony va a proporcionar el archivo (SVG/PNG) en el chat; falta
+  que lo entregue.
+
+## Qué existe (post-Segmento 6 — ajustes de pendientes, 2026-08-03)
+
+- `index.html`: teaser de servicios actualizado de 5 tarjetas genéricas a
+  los **7 servicios reales** (mismos títulos/primera frase de
+  `servicios.html`), cada tarjeta ahora es un `<a>` que enlaza directo al
+  ancla del servicio correspondiente en `servicios.html`
+  (`./servicios.html#desarrollo-de-software`, etc. — los 7 anchors ya
+  existían desde el Segmento 3). `.service-card` pasó de `<article>` a
+  `<a>`; se agregó `display: block` en `home.css` para que siga
+  comportándose como bloque, y hereda foco visible / color / sin
+  subrayado de las reglas globales ya existentes en `main.css`.
+- 2 iconos SVG nuevos (mismo estilo stroke que los demás, decorativos,
+  `aria-hidden="true"`) para Soporte & Mantenimiento y Consultoría SAP,
+  que no tenían tarjeta previa en el teaser.
+- Ítem "Recursos": decisión tomada de no agregarlo — no requiere cambios.
+- Logo real: pendiente de que Tony entregue el archivo.
 
 ## Qué falta
 
-Los 6 segmentos del plan original están completos. Lo que queda es
-verificación manual que este entorno no puede hacer (ver "Pruebas
-realizadas sobre el Segmento 6") y las decisiones de negocio todavía
-abiertas — ver sección siguiente.
+Los 6 segmentos del plan original están completos, y los 3 pendientes de
+negocio abiertos al cierre del Segmento 6 ya se resolvieron (una queda
+abierta: logo real, pendiente de archivo por parte de Tony). Lo que
+queda es verificación manual que este entorno no puede hacer (Lighthouse,
+revisión visual en navegador — ver "Pruebas realizadas sobre el
+Segmento 6").
