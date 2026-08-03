@@ -1,0 +1,173 @@
+/* home.css — estilos específicos de la página de inicio */
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--color-navy-950);
+  color: var(--color-paper);
+  padding-block: var(--sp-10) var(--sp-8);
+}
+.hero h1 { color: var(--color-paper); }
+.hero-eyebrow { color: var(--color-gold-400); }
+.hero-lede {
+  color: rgba(247, 244, 236, 0.78);
+  font-size: var(--fs-lg);
+  max-width: 46ch;
+  margin-block: var(--sp-3) var(--sp-5);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero-grid { grid-template-columns: 1.2fr 1fr; }
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+
+.hero-panel {
+  background: rgba(247, 244, 236, 0.06);
+  border: 1px solid var(--color-line-on-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+.hero-panel dl { display: grid; gap: var(--sp-4); }
+.hero-panel dt {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-400);
+  margin-bottom: 0.25em;
+}
+.hero-panel dd {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-paper);
+}
+
+/* ---------- Partner strip ---------- */
+.partner-strip {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: var(--sp-4);
+}
+.partner-strip .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+@media (min-width: 720px) {
+  .partner-strip .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.partner-strip .label {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-soft);
+  font-weight: 700;
+}
+.partner-strip ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-navy-800);
+}
+
+/* ---------- Servicios (teaser) ---------- */
+.services-teaser {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+@media (min-width: 640px) {
+  .services-teaser { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .services-teaser { grid-template-columns: repeat(3, 1fr); }
+}
+
+.service-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  transition: transform var(--dur-base) var(--ease-standard),
+              box-shadow var(--dur-base) var(--ease-standard);
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.service-card .icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-gold-100);
+  color: var(--color-gold-600);
+  margin-bottom: var(--sp-3);
+}
+.service-card .icon svg { width: 22px; height: 22px; }
+.service-card h3 { margin-bottom: var(--sp-1); }
+.service-card p { font-size: var(--fs-sm); }
+
+/* ---------- Valores ---------- */
+.values-section {
+  background: var(--color-navy-950);
+  color: var(--color-paper);
+}
+.values-section p { color: rgba(247, 244, 236, 0.72); }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+@media (min-width: 640px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .values-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.value-item {
+  padding: var(--sp-3);
+  border-left: 2px solid var(--color-gold-500);
+}
+.value-item h4 { color: var(--color-paper); margin-bottom: 0.25em; }
+.value-item p { font-size: var(--fs-sm); }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: var(--color-gold-100);
+}
+.cta-band .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  align-items: flex-start;
+}
+@media (min-width: 720px) {
+  .cta-band .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.cta-band h2 { font-size: var(--fs-xl); max-width: 24ch; }
+.cta-band p {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-navy-800);
+  margin-top: var(--sp-1);
+}
