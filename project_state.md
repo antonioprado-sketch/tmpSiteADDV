@@ -1,14 +1,35 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 2 completado (2026-08-03) —
-`nosotros.html` y `contacto.html`, más sync de footer/marca en las 3
-páginas y botón flotante de WhatsApp global.
+Última actualización: Segmento 3 completado (2026-08-03) —
+`servicios.html` con los 7 servicios reales, más botón "Hablemos" en el
+header de las 4 páginas existentes.
 
 Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
 (`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
 (no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
 inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
 rastro — remoto pendiente de que Tony dé la URL del repo.
+
+## Qué existe (Segmento 3 — Servicios)
+
+- `servicios.html`: hero de página + 7 servicios completos (título,
+  descripción, 3 bullets c/u), tomados literal de
+  `http://localhost:8080/servicios`: Desarrollo de Software, Business
+  Intelligence, Arquitectura & Cloud, UX/UI Design, Integración &
+  Automatización, Soporte & Mantenimiento, **Consultoría SAP**. Nota: el
+  footer-nav del propio sitio real solo lista 6 (omite "Consultoría SAP")
+  — inconsistencia de ellos, no nuestra; aquí se listan los 7 que sí
+  aparecen en el contenido de la página real.
+- `assets/css/servicios.css`: lista vertical de servicios con bullets
+  (viñeta punteada en oro, sin iconos por servicio — el HTML real no traía
+  iconos recuperables en el texto extraído).
+- Cada servicio tiene `id` ancla (`#desarrollo-de-software`, etc.) por si
+  se quiere enlazar directo desde el teaser de home más adelante.
+- **Botón CTA "Hablemos" en el header**, agregado a las 4 páginas
+  existentes (`index.html`, `nosotros.html`, `contacto.html`,
+  `servicios.html`): visible en desktop junto al nav (`.nav-cta`), y como
+  botón de ancho completo al final del menú móvil (`.nav-mobile-cta`).
+  Enlaza a `contacto.html` en todas.
 
 ## Qué existe (Segmento 2 — Nosotros y Contacto)
 
@@ -88,6 +109,14 @@ pendientes" abajo.
   terceros; documenta qué se necesitaría si se decide incorporarla más
   adelante, y advierte no usar logos reales de clientes sin autorización.
 
+## Pruebas realizadas sobre el Segmento 3
+
+- Verificación por filesystem: `servicios.html` y
+  `assets/css/servicios.css` existen en disco.
+- Sanity check por grep: exactamente un `<h1>`, `lang="es"` presente,
+  `aria-controls="mobile-menu"` apunta a un id real.
+- Sin JS nuevo en este segmento (nada que validar con `node --check`).
+
 ## Pruebas realizadas sobre el Segmento 2
 
 - Sintaxis JS validada (`node --check`) en `contacto.js` — sin errores.
@@ -145,23 +174,23 @@ pendientes" abajo.
 
 ## Decisiones pendientes de confirmar con Tony
 
-- **Nueva (Segmento 2):** el teaser de servicios en home (5 tarjetas) y el
-  copy institucional en general puede haber quedado desactualizado frente
-  a `localhost:8080`, que muestra 6 servicios (Desarrollo de Software,
-  Business Intelligence, Arquitectura & Cloud, UX/UI Design, Integración &
-  Automatización, Soporte & Mantenimiento) en vez de los 5 actuales. Definir
-  para `servicios.html` (Segmento 3) si se listan los 6 reales o se
-  mantiene el set actual.
-- **Nueva (Segmento 2):** `localhost:8080` tiene un ítem de nav "Recursos"
-  (blog, guías, webinars, plantillas, FAQ) y un botón CTA "Hablemos" en el
-  header que no existen en el plan original de 6 páginas de este sitio
-  estático. ¿Se agregan al alcance o se dejan fuera por ahora?
+- **Abierta desde Segmento 2/3:** el teaser de servicios en home (5
+  tarjetas, copy corto/genérico) quedó desactualizado frente a los 7
+  servicios reales ya usados en `servicios.html` (con copy más largo y
+  específico). ¿Se actualiza el teaser de home a los mismos 7 (o una
+  selección de ellos con el copy real), o se deja como resumen aparte?
+- **Resuelta en Segmento 3:** botón "Hablemos" en el header — sí, se
+  agregó a las 4 páginas.
+- **Sigue abierta:** `localhost:8080` tiene un ítem de nav "Recursos"
+  (blog, guías, webinars, plantillas, FAQ) que no existe en el plan
+  original de 6 páginas de este sitio estático — no se agregó (crearía un
+  link roto sin página destino). ¿Se agrega al alcance como página nueva,
+  o se deja fuera?
 - Si se debe reemplazar el mark "+V" en SVG por un logo oficial real (no se
   proporcionó archivo de logo).
 
 ## Qué falta (próximos segmentos, ya aprobados en el plan)
 
-3. `servicios.html`.
 4. `productos.html`.
 5. `casos-exito.html`.
 6. Checklist final: accesibilidad, performance, Lighthouse, cierre de

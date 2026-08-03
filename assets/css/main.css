@@ -126,6 +126,8 @@ select:focus-visible {
 .nav-links a:hover,
 .nav-links a[aria-current="page"] { color: var(--color-navy-950); }
 
+.nav-cta { display: none; }
+
 .nav-toggle {
   display: inline-flex;
   align-items: center;
@@ -159,9 +161,11 @@ select:focus-visible {
   background: var(--color-gold-100);
 }
 .nav-mobile.is-open { display: flex; }
+.nav-mobile-cta { margin-top: var(--sp-2); align-self: flex-start; }
 
 @media (min-width: 860px) {
   .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
   .nav-toggle { display: none; }
   .nav-mobile { display: none !important; }
 }

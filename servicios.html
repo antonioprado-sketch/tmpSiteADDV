@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto | ADDV — Consultoría TI y Transformación Digital</title>
-  <meta name="description" content="Contacta a ADDV: completa el formulario o escríbenos directo por WhatsApp para hablar de tu proyecto de consultoría tecnológica y transformación digital." />
+  <title>Servicios | ADDV — Consultoría TI y Transformación Digital</title>
+  <meta name="description" content="Desarrollo de software, Business Intelligence, Arquitectura & Cloud, UX/UI, integración y automatización, soporte y consultoría SAP: los servicios de ADDV para transformar tu negocio." />
   <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
   <link rel="alternate icon" type="image/x-icon" href="./favicon.ico" />
-  <link rel="canonical" href="https://www.addv.mx/contacto" />
+  <link rel="canonical" href="https://www.addv.mx/servicios" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="./assets/css/tokens.css" />
   <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/contacto.css" />
+  <link rel="stylesheet" href="./assets/css/servicios.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -32,11 +32,11 @@
 
       <nav class="nav-links" aria-label="Principal">
         <a href="./index.html">Inicio</a>
-        <a href="./servicios.html">Servicios</a>
+        <a href="./servicios.html" aria-current="page">Servicios</a>
         <a href="./productos.html">Productos</a>
         <a href="./casos-exito.html">Casos de éxito</a>
         <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html" aria-current="page">Contacto</a>
+        <a href="./contacto.html">Contacto</a>
       </nav>
 
       <a class="btn btn-primary nav-cta" href="./contacto.html">Hablemos</a>
@@ -51,11 +51,11 @@
     <div class="container">
       <nav class="nav-mobile" id="mobile-menu" aria-label="Menú móvil">
         <a href="./index.html">Inicio</a>
-        <a href="./servicios.html">Servicios</a>
+        <a href="./servicios.html" aria-current="page">Servicios</a>
         <a href="./productos.html">Productos</a>
         <a href="./casos-exito.html">Casos de éxito</a>
         <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html" aria-current="page">Contacto</a>
+        <a href="./contacto.html">Contacto</a>
         <a class="btn btn-primary nav-mobile-cta" href="./contacto.html">Hablemos</a>
       </nav>
     </div>
@@ -64,85 +64,99 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Contacto</p>
-        <h1>Hablemos de tu proyecto</h1>
+        <p class="eyebrow">Servicios</p>
+        <h1>Soluciones tecnológicas a la medida de tu negocio</h1>
         <p class="page-lede">
-          Completa el formulario y te contactaremos en menos de un día
-          hábil, o escríbenos directo por WhatsApp si prefieres una
-          respuesta inmediata.
+          Integramos talento, tecnología y metodologías ágiles para diseñar
+          soluciones robustas, escalables y alineadas a tus objetivos de
+          negocio.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container contact-grid">
-        <form class="contact-form" id="contact-form" novalidate>
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-website">No llenar este campo</label>
-            <input type="text" id="hp-website" name="hp-website" tabindex="-1" autocomplete="off" />
-          </div>
+      <div class="container">
+        <div class="services-list">
+          <article class="service-detail reveal" id="desarrollo-de-software">
+            <h2>Desarrollo de Software</h2>
+            <p>Software a la medida que se adapta a cómo ya trabajas, no al revés. Arquitecturas escalables y seguras desde el primer commit, pensadas para crecer contigo sin reescrituras costosas.</p>
+            <ul class="service-bullets">
+              <li>Aplicaciones web y móviles construidas con estándares de ingeniería de nivel enterprise</li>
+              <li>Código propio, documentado y sin dependencia de un solo desarrollador</li>
+              <li>Seguridad integrada desde el diseño, no como parche posterior</li>
+            </ul>
+          </article>
 
-          <div class="form-field">
-            <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
-            <input type="text" id="f-nombre" name="nombre" required autocomplete="name" aria-describedby="err-nombre" />
-            <p class="field-error" id="err-nombre" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="business-intelligence">
+            <h2>Business Intelligence</h2>
+            <p>Tus datos ya existen; lo que falta es que te hablen. Convertimos información dispersa en decisiones claras, con dashboards que tu equipo directivo realmente usa.</p>
+            <ul class="service-bullets">
+              <li>Tableros de control en tiempo real, sin depender de hojas de cálculo manuales</li>
+              <li>Modelos de datos limpios y confiables como base de cualquier decisión</li>
+              <li>Reportes ejecutivos que se entienden en 30 segundos, no en 30 minutos</li>
+            </ul>
+          </article>
 
-          <div class="form-field">
-            <label for="f-correo">Correo electrónico <span aria-hidden="true">*</span></label>
-            <input type="email" id="f-correo" name="correo" required autocomplete="email" aria-describedby="err-correo" />
-            <p class="field-error" id="err-correo" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="arquitectura-cloud">
+            <h2>Arquitectura &amp; Cloud</h2>
+            <p>Infraestructura en AWS y Azure diseñada para estar disponible cuando más la necesitas, con costos predecibles y capacidad de escalar sin fricción en momentos de alta demanda.</p>
+            <ul class="service-bullets">
+              <li>Alta disponibilidad y recuperación ante fallos como estándar, no como extra</li>
+              <li>Optimización de costos continua — pagas por lo que realmente usas</li>
+              <li>Migración sin interrupciones para el negocio en operación</li>
+            </ul>
+          </article>
 
-          <div class="form-field">
-            <label for="f-telefono">Teléfono <span aria-hidden="true">*</span></label>
-            <input type="tel" id="f-telefono" name="telefono" required autocomplete="tel" aria-describedby="err-telefono" />
-            <p class="field-error" id="err-telefono" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="ux-ui-design">
+            <h2>UX / UI Design</h2>
+            <p>Diseño que reduce la fricción entre tu usuario y el resultado que busca. Cada interacción se valida con datos, no con opiniones — porque un producto bonito que no convierte no cumple su función.</p>
+            <ul class="service-bullets">
+              <li>Investigación de usuario real antes de diseñar la primera pantalla</li>
+              <li>Sistemas de diseño consistentes que aceleran cada entrega futura</li>
+              <li>Interfaces accesibles (WCAG AA) que amplían, no reducen, tu audiencia</li>
+            </ul>
+          </article>
 
-          <div class="form-field">
-            <label for="f-empresa">Empresa <span aria-hidden="true">*</span></label>
-            <input type="text" id="f-empresa" name="empresa" required autocomplete="organization" aria-describedby="err-empresa" />
-            <p class="field-error" id="err-empresa" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="integracion-automatizacion">
+            <h2>Integración &amp; Automatización</h2>
+            <p>Cada sistema que no se habla con otro es tiempo de tu equipo perdido en trabajo manual. Conectamos tu stack tecnológico y automatizamos lo repetitivo para que tu gente se enfoque en lo estratégico.</p>
+            <ul class="service-bullets">
+              <li>APIs y flujos de integración entre los sistemas que ya usas hoy</li>
+              <li>Automatización de procesos operativos de alto volumen y bajo valor agregado</li>
+              <li>Menos errores humanos, más trazabilidad en cada proceso</li>
+            </ul>
+          </article>
 
-          <div class="form-field form-field-full">
-            <label for="f-sitio">Sitio web <span aria-hidden="true">*</span></label>
-            <input type="url" id="f-sitio" name="sitio" required placeholder="https://ejemplo.com" autocomplete="url" aria-describedby="err-sitio" />
-            <p class="field-error" id="err-sitio" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="soporte-mantenimiento">
+            <h2>Soporte &amp; Mantenimiento</h2>
+            <p>La tecnología no termina el día del lanzamiento. Acompañamos la evolución de tu producto con monitoreo proactivo, para que los problemas se resuelvan antes de que tu cliente los note.</p>
+            <ul class="service-bullets">
+              <li>Monitoreo y alertas 24/7 sobre la salud de tus sistemas críticos</li>
+              <li>SLAs claros de tiempo de respuesta, no promesas vagas</li>
+              <li>Mejora continua basada en el uso real de tu producto</li>
+            </ul>
+          </article>
 
-          <div class="form-field form-field-full">
-            <label for="f-mensaje">Mensaje <span aria-hidden="true">*</span></label>
-            <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="err-mensaje"></textarea>
-            <p class="field-error" id="err-mensaje" role="alert"></p>
-          </div>
+          <article class="service-detail reveal" id="consultoria-sap">
+            <h2>Consultoría SAP</h2>
+            <p>Implementar o migrar SAP no debería paralizar tu operación. Acompañamos cada etapa del proyecto con especialistas certificados, para que la transición sea predecible y el equipo la adopte desde el primer día.</p>
+            <ul class="service-bullets">
+              <li>Implementación y migración de módulos SAP alineadas a tus procesos reales</li>
+              <li>Integración de SAP con el resto de tu stack tecnológico y tus sistemas legados</li>
+              <li>Soporte especializado post go-live para minimizar interrupciones operativas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-            <p class="form-hint">Se abrirá WhatsApp con tu mensaje ya redactado.</p>
-          </div>
-        </form>
-
-        <aside class="contact-info" aria-label="Información de contacto">
-          <div>
-            <h3>WhatsApp directo</h3>
-            <a class="contact-link" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">+52 55 3994 4697</a>
-          </div>
-          <div>
-            <h3>Correo</h3>
-            <a class="contact-link" href="mailto:contacto@addv.mx">contacto@addv.mx</a>
-          </div>
-          <div>
-            <h3>Oficina principal</h3>
-            <p>Homero 229, Master Suite 3, Privado 5<br />Polanco, Ciudad de México, 11560</p>
-            <a class="contact-link" href="tel:+525552542235">+52 (55) 5254 2235</a>
-          </div>
-          <div>
-            <h3>Oficina adicional</h3>
-            <p>C. W. A. Mozart 555<br />La Loma, 58290 Morelia, Mich.</p>
-          </div>
-        </aside>
+    <section class="cta-band section">
+      <div class="container">
+        <div>
+          <h2>¿Listo para transformar tu negocio?</h2>
+          <p>Cuéntanos tu proyecto y generemos valor juntos.</p>
+        </div>
+        <a class="btn btn-primary" href="./contacto.html">Hablemos de tu proyecto</a>
       </div>
     </section>
   </main>
@@ -211,6 +225,5 @@
   </a>
 
   <script type="module" src="./assets/js/main.js"></script>
-  <script type="module" src="./assets/js/contacto.js"></script>
 </body>
 </html>

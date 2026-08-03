@@ -46,15 +46,15 @@ no usa `fetch` a assets locales).
 ├── index.html            Página de inicio
 ├── nosotros.html         Nosotros (propósito, pilares de marca)
 ├── contacto.html         Contacto (formulario → WhatsApp, sin backend)
-├── servicios.html        (pendiente — próximo segmento)
+├── servicios.html        Servicios (7 servicios con detalle y bullets)
 ├── productos.html        (pendiente — próximo segmento)
 ├── casos-exito.html      (pendiente — próximo segmento)
 ├── assets/
 │   ├── css/               tokens.css (paleta/tipografía), main.css
 │   │                       (compartido: header/nav/footer/botones/
 │   │                       page-hero/formularios/cta-band/wa-float),
-│   │                       home.css, nosotros.css, contacto.css
-│   │                       (específicos de cada página)
+│   │                       home.css, nosotros.css, contacto.css,
+│   │                       servicios.css (específicos de cada página)
 │   ├── js/                 main.js (nav+reveal, todas las páginas),
 │   │                       nav.js, reveal.js, contacto.js (solo en
 │   │                       contacto.html — validación + WhatsApp)
