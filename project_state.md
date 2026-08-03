@@ -1,14 +1,30 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 3 completado (2026-08-03) —
-`servicios.html` con los 7 servicios reales, más botón "Hablemos" en el
-header de las 4 páginas existentes.
+Última actualización: Segmento 4 completado (2026-08-03) —
+`productos.html`.
 
 Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
 (`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
 (no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
 inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
 rastro — remoto pendiente de que Tony dé la URL del repo.
+
+## Qué existe (Segmento 4 — Productos)
+
+- `productos.html`: hero de página + 2 tarjetas de producto (Portal de
+  Facturación, ADDV Fintech), copy mezclado a propósito (decisión
+  explícita de Tony): estructura y tono tomados de
+  `http://localhost:8080/productos`, más los matices ya confirmados antes
+  en el proyecto que el sitio real ya no menciona (sin timbrado CFDI,
+  colaboración con el contador del cliente, fintech de "marca blanca").
+  Estatus asimétrico como estaba decidido: Portal de Facturación
+  "Próximamente" (más avanzado), ADDV Fintech "En construcción".
+- `assets/css/productos.css`: grid de 2 tarjetas con badge de estatus en
+  pastilla dorada.
+- Sin botón "Ver más" en las tarjetas — el sitio real enlaza a páginas de
+  detalle por producto que no existen en el alcance de este sitio
+  estático; se omitió para no crear links rotos (mismo criterio que con
+  "Recursos").
 
 ## Qué existe (Segmento 3 — Servicios)
 
@@ -109,6 +125,15 @@ pendientes" abajo.
   terceros; documenta qué se necesitaría si se decide incorporarla más
   adelante, y advierte no usar logos reales de clientes sin autorización.
 
+## Pruebas realizadas sobre el Segmento 4
+
+- Verificación por filesystem: `productos.html` y
+  `assets/css/productos.css` existen en disco.
+- Sanity check por grep: exactamente un `<h1>`, `lang="es"` presente,
+  `aria-controls="mobile-menu"` apunta a un id real, `sitemap.xml` ya
+  listaba `productos.html`.
+- Sin JS nuevo en este segmento.
+
 ## Pruebas realizadas sobre el Segmento 3
 
 - Verificación por filesystem: `servicios.html` y
@@ -158,7 +183,8 @@ pendientes" abajo.
 - Productos confirmados: portal de facturación para emprendedores (sin
   timbrado CFDI, foco en gestión organizada/madurez tecnológica con su
   contador) y fintech de marca blanca — esta última se publica marcada
-  "en construcción".
+  "en construcción". (Segmento 4: implementado con este matiz mezclado
+  sobre la estructura/tono del sitio real, por decisión explícita.)
 - Copy tomado de https://www.addv.mx/ real (home, "¿Por qué ADDV?", footer,
   redes sociales) — no se inventó contenido institucional.
 - (Segmento 2) Copy de `nosotros.html` y datos de contacto tomados de
@@ -191,7 +217,6 @@ pendientes" abajo.
 
 ## Qué falta (próximos segmentos, ya aprobados en el plan)
 
-4. `productos.html`.
 5. `casos-exito.html`.
 6. Checklist final: accesibilidad, performance, Lighthouse, cierre de
    documentación.
