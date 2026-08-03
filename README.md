@@ -49,8 +49,10 @@ no usa `fetch` a assets locales).
 ├── servicios.html        Servicios (7 servicios con detalle y bullets)
 ├── productos.html        Productos (Portal de Facturación, ADDV Fintech)
 ├── casos-exito.html      Casos de éxito (clientes reales + ejemplos)
+│                         (las 6 páginas del sitio ya existen)
 ├── assets/
-│   ├── css/               tokens.css (paleta/tipografía), main.css
+│   ├── css/               tokens.css (paleta/tipografía + colores
+│   │                       verificados para contraste AA), main.css
 │   │                       (compartido: header/nav/footer/botones/
 │   │                       page-hero/formularios/cta-band/wa-float),
 │   │                       home.css, nosotros.css, contacto.css,
@@ -72,5 +74,12 @@ no usa `fetch` a assets locales).
 
 ## Estado actual
 
-Ver `project_state.md` para el detalle de qué está construido, qué
-decisiones ya se tomaron, y qué falta por segmento.
+Sitio funcionalmente completo: las 6 páginas existen, sin links internos
+rotos, con checklist de accesibilidad AA y performance ya auditado (ver
+`project_state.md`, Segmento 6). Pendiente: revisión visual real en
+navegador y Lighthouse — no se pudo levantar un servidor local en el
+entorno donde se construyó (sin intérprete Python real en el PATH).
+Recomendado antes de publicar en producción.
+
+Ver `project_state.md` para el detalle completo de qué está construido,
+qué decisiones ya se tomaron, y qué queda pendiente de confirmar.

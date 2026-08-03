@@ -40,7 +40,7 @@
   padding: 0.3em 0.8em;
   border-radius: 999px;
   background: var(--color-gold-100);
-  color: var(--color-gold-600);
+  color: var(--color-gold-700);
   white-space: nowrap;
 }
 .case-tag.is-illustrative {
@@ -54,7 +54,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
-  color: var(--color-gold-600);
+  color: var(--color-gold-700);
   margin-bottom: 0.2em;
 }
 .case-details dd { font-size: var(--fs-sm); color: var(--color-ink-soft); }

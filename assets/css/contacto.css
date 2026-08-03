@@ -43,7 +43,7 @@
   padding: var(--sp-5);
   border-radius: var(--radius-lg);
 }
-.contact-info h3 {
+.contact-info h2 {
   color: var(--color-gold-400);
   font-size: var(--fs-sm);
   text-transform: uppercase;

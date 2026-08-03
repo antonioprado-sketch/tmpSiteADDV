@@ -30,7 +30,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   background: var(--color-gold-100);
-  color: var(--color-gold-600);
+  color: var(--color-gold-700);
 }
 
 .product-card h2 { font-size: var(--fs-lg); margin-top: var(--sp-1); }

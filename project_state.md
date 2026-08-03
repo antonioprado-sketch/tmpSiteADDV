@@ -1,16 +1,76 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 5 completado (2026-08-03) —
-`casos-exito.html`. **Las 6 páginas del sitio ya existen** — ya no quedan
-links internos rotos en ninguna página. Falta el checklist final
-(Segmento 6: accesibilidad, performance, Lighthouse, cierre de
-documentación).
+Última actualización: Segmento 6 completado (2026-08-03) — checklist final
+de accesibilidad/performance sobre las 6 páginas. **El sitio está
+funcionalmente completo** (las 6 páginas del plan original existen, sin
+links internos rotos). Pendiente: revisión visual real en navegador y
+Lighthouse — ver "Pendiente" abajo, bloqueado por no tener un servidor
+local funcional en este entorno.
 
 Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
 (`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
 (no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
 inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
 rastro — remoto pendiente de que Tony dé la URL del repo.
+
+## Qué existe (Segmento 6 — Checklist final de calidad)
+
+Auditoría de accesibilidad (WCAG 2.1 AA) y performance sobre las 6
+páginas, usando las skills `web-performance-accessibility` y
+`low-impact-motion`. Se calcularon ratios de contraste reales (fórmula
+WCAG de luminancia relativa) para cada par texto/fondo del sistema de
+diseño — no se asumió visualmente.
+
+**Bugs de accesibilidad encontrados y corregidos:**
+
+- **Contraste insuficiente** en 3 usos de `--color-gold-600` como color de
+  texto: `.eyebrow` (3.19:1 sobre `--color-paper`), `.case-tag`/
+  `.product-status` (2.95:1 sobre `--color-gold-100`), y
+  `.case-details dt` (3.51:1 sobre blanco) — los tres por debajo del 4.5:1
+  requerido (el texto es `fs-xs`/`fs-sm` en negritas, no califica como
+  "texto grande" bajo WCAG). **Fix:** nuevo token `--color-gold-700`
+  (`#7A5D16`), que da ≥5.1:1 en los tres fondos, aplicado en `main.css`,
+  `home.css`, `casos-exito.css` y `productos.css`. `--color-gold-600` se
+  conserva para otros usos no textuales.
+- **Salto de nivel de encabezado** `h2 → h4` en la sección de valores de
+  `index.html` (`.value-item`) — corregido a `h3` (con `font-size`
+  explícito para no cambiar el tamaño visual, solo el nivel semántico).
+- **Salto de nivel** `h1 → h3` (sin ningún `h2`) en `contacto.html` — las
+  4 cabeceras del panel de contacto (`WhatsApp directo`, `Correo`,
+  `Oficina principal`, `Oficina adicional`) eran `h3`; se subieron a
+  `h2`. Verificado con `grep` que las 6 páginas quedaron con jerarquía
+  `h1 → h2 → h3` sin saltos.
+- **Objetivo de toque táctil** (44×44px mínimo): `.nav-toggle` (era
+  40×40) y `.social-links a` (era 36×36) se subieron a 44×44.
+
+**Verificado sin hallazgos (ya cumplía):**
+
+- Resto de pares texto/fondo del sistema de diseño (16 combinaciones
+  revisadas, incluyendo texto semitransparente sobre navy) — todos
+  ≥4.5:1.
+- Foco visible global (`:focus-visible`), skip link, `aria-expanded`/
+  `aria-controls`/`aria-label` en el menú móvil, `aria-label` en
+  íconos-only (WhatsApp flotante, redes sociales), honeypot con
+  `aria-hidden` + `tabindex="-1"` correctamente excluido de teclado y
+  lectores de pantalla, errores de formulario anunciados vía texto +
+  `role="alert"` (no solo color).
+- Cero `<img>` en todo el sitio (100% SVG inline) y cero `<svg>` sin
+  `aria-hidden="true"`.
+- Cero links internos rotos en las 6 páginas (verificado por filesystem,
+  cada `href="./..."` resuelve a un archivo real).
+- Animaciones: solo `transform`/`opacity` (reveal-on-scroll,
+  hover de botones) más `background-color`/`color`/`box-shadow` en
+  transiciones puntuales de hover (no en bucle, sobre elementos
+  pequeños) — dentro de lo permitido por `low-impact-motion`. Ninguna
+  animación de `top`/`left`/`width`/`height`/`margin`/`padding`.
+  `prefers-reduced-motion: reduce` respetado en CSS y en `reveal.js`.
+  Sin scroll hijacking (el único listener de scroll es el nativo del
+  navegador; `reveal.js` usa `IntersectionObserver`, no el evento
+  `scroll`).
+- Sin anchos fijos grandes en CSS que pudieran romper viewports angostos
+  — todo el layout usa unidades relativas, `flex`/`grid` con `1fr`, y
+  `.container` con `max-width` + padding.
+- `sitemap.xml` coincide exactamente con las 6 páginas reales.
 
 ## Qué existe (Segmento 5 — Casos de éxito)
 
@@ -153,6 +213,28 @@ pendientes" abajo.
   terceros; documenta qué se necesitaría si se decide incorporarla más
   adelante, y advierte no usar logos reales de clientes sin autorización.
 
+## Pruebas realizadas sobre el Segmento 6
+
+- Contraste: calculado programáticamente (Node, fórmula WCAG de
+  luminancia relativa) para 19 pares texto/fondo del sistema de diseño,
+  incluyendo colores semitransparentes mezclados sobre su fondo real.
+  3 fallos encontrados y corregidos (ver arriba); los 16 restantes ya
+  cumplían AA.
+- Jerarquía de encabezados: `grep` de `<h1>`–`<h6>` en las 6 páginas,
+  verificado manualmente que no hay saltos de nivel. 2 saltos encontrados
+  y corregidos.
+- `node --check` en los 4 módulos JS (`main.js`, `nav.js`, `reveal.js`,
+  `contacto.js`) — sin errores.
+- Verificación exhaustiva de enlaces: cada `href="./..."` y
+  `src="./..."` de las 6 páginas resuelve a un archivo real en disco —
+  cero rotos.
+- `sitemap.xml` contrastado contra las 6 páginas reales — coincide.
+- Sigue pendiente (como en segmentos anteriores): Lighthouse y revisión
+  visual real en navegador — no hay intérprete Python funcional en el
+  PATH de este entorno para levantar `http.server`. Recomendado antes de
+  publicar: abrir cada página con doble clic (`file://`) o en un entorno
+  con servidor local disponible, y correr Lighthouse ahí.
+
 ## Pruebas realizadas sobre el Segmento 5
 
 - Verificación por filesystem: `casos-exito.html` y
@@ -257,7 +339,9 @@ pendientes" abajo.
 - Si se debe reemplazar el mark "+V" en SVG por un logo oficial real (no se
   proporcionó archivo de logo).
 
-## Qué falta (próximos segmentos, ya aprobados en el plan)
+## Qué falta
 
-6. Checklist final: accesibilidad, performance, Lighthouse, cierre de
-   documentación.
+Los 6 segmentos del plan original están completos. Lo que queda es
+verificación manual que este entorno no puede hacer (ver "Pruebas
+realizadas sobre el Segmento 6") y las decisiones de negocio todavía
+abiertas — ver sección siguiente.
