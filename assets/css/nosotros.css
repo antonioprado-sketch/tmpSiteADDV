@@ -1,0 +1,26 @@
+/* nosotros.css — estilos específicos de la página Nosotros */
+
+.pillars-section {
+  background: var(--color-navy-950);
+  color: var(--color-paper);
+}
+.pillars-section p { color: rgba(247, 244, 236, 0.72); }
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+@media (min-width: 640px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.pillar-item {
+  padding: var(--sp-3);
+  border-left: 2px solid var(--color-gold-500);
+}
+.pillar-item h3 { color: var(--color-paper); margin-bottom: 0.25em; }
+.pillar-item p { font-size: var(--fs-sm); }

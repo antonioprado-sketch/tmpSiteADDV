@@ -1,10 +1,64 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 1 reconstruido (2026-08-03) — la carpeta
-`assets/` y los archivos raíz (`robots.txt`, `sitemap.xml`, `favicon.ico`)
-se habían perdido del disco (no había repo git para recuperarlos); se
-regeneraron desde cero siguiendo exactamente lo descrito en este documento
-y las clases/variables ya usadas por `index.html`.
+Última actualización: Segmento 2 completado (2026-08-03) —
+`nosotros.html` y `contacto.html`, más sync de footer/marca en las 3
+páginas y botón flotante de WhatsApp global.
+
+Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
+(`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
+(no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
+inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
+rastro — remoto pendiente de que Tony dé la URL del repo.
+
+## Qué existe (Segmento 2 — Nosotros y Contacto)
+
+- `nosotros.html`: hero de página, sección "Propósito", 5 "Pilares de
+  marca" (Confianza absoluta, Inteligencia estratégica, Excelencia
+  técnica, Innovación con impacto, Resultados que perduran), banda CTA a
+  contacto. Copy tomado literal de `http://localhost:8080/nosotros`
+  (versión más reciente/completa del sitio real que la que sirve
+  `www.addv.mx` en vivo — ver nota abajo).
+- `contacto.html`: formulario con 6 campos, todos obligatorios (Nombre,
+  Correo electrónico, Teléfono, Empresa, Sitio web, Mensaje — el campo de
+  sitio web y el que todos sean obligatorios ya estaba decidido; el resto
+  del set de campos lo confirmó Tony en este segmento). Incluye campo
+  honeypot invisible (`#hp-website`) como anti-spam. Al enviar: valida en
+  cliente (formato de correo/URL, campos vacíos, mensajes de error
+  accesibles vía `role="alert"` + `aria-invalid`), arma el mensaje y abre
+  `https://wa.me/525539944697?text=...` en pestaña nueva — sin backend.
+  Panel lateral con WhatsApp directo, correo, oficina principal y oficina
+  adicional.
+- `assets/css/nosotros.css`, `assets/css/contacto.css`: estilos
+  específicos de cada página (`.pillars-*`, `.contact-*`), siguiendo la
+  convención de un CSS por página.
+- `assets/css/main.css` ganó bloques compartidos nuevos: `.page-hero` /
+  `.page-lede` (reutilizable en cualquier página interna), `.form-field` /
+  `.field-error` / `.hp-field` (formularios), y `.cta-band` (se movió
+  desde `home.css` porque ahora la usan 2 páginas — home y nosotros).
+- `assets/js/contacto.js`: módulo nuevo, responsabilidad única (validación
+  + honeypot + construcción del link de WhatsApp). Se referencia con un
+  `<script type="module">` adicional solo en `contacto.html`; `main.js`
+  (nav + reveal) se mantiene genérico para todas las páginas.
+- Botón flotante de WhatsApp (`.wa-float`) agregado a **las 3 páginas**
+  existentes (`index.html`, `nosotros.html`, `contacto.html`) — decisión
+  confirmada: aparece en todo el sitio, no solo en contacto.
+- **Footer sincronizado en las 3 páginas** con datos más recientes de
+  `http://localhost:8080/`: correo `contacto@addv.mx` (antes
+  `info@addv.mx`), oficina adicional en Morelia además de la de Polanco,
+  razón social completa "Agile Development and Design + Value, S.A. de
+  C.V." (antes "...Value®").
+
+### Nota importante — fuente de verdad del copy cambió a mitad de proyecto
+
+`https://www.addv.mx/nosotros` responde 404 en el sitio en vivo, y
+`https://www.addv.mx/por-que-addv` solo trae misión+valores (lo que ya
+usamos en home desde el Segmento 1). Tony indicó copiar en su lugar de
+`http://localhost:8080/` — un build Next.js local con contenido más
+completo y aparentemente más nuevo (nueva oficina, nuevo correo, 6
+servicios en vez de 5, nav con ítems `Recursos` y botón `Hablemos` que
+no existen todavía en nuestro sitio estático). Se sincronizó lo que toca a
+este segmento (footer); lo que falta por reconciliar queda en "Decisiones
+pendientes" abajo.
 
 ## Qué existe (Segmento 1 — Base del proyecto)
 
@@ -34,7 +88,21 @@ y las clases/variables ya usadas por `index.html`.
   terceros; documenta qué se necesitaría si se decide incorporarla más
   adelante, y advierte no usar logos reales de clientes sin autorización.
 
-## Pruebas realizadas sobre este segmento
+## Pruebas realizadas sobre el Segmento 2
+
+- Sintaxis JS validada (`node --check`) en `contacto.js` — sin errores.
+- Verificación por filesystem: `nosotros.html`, `contacto.html`,
+  `assets/css/nosotros.css`, `assets/css/contacto.css`,
+  `assets/js/contacto.js` existen en disco.
+- Sanity check por grep: exactamente un `<h1>` por página, `lang="es"`
+  presente, `aria-controls="mobile-menu"` apunta a un id real en ambas
+  páginas, cada `<label for="...">` del formulario tiene su `id`
+  correspondiente en el input (7 pares, incluyendo el honeypot).
+- Pendiente (igual que Segmento 1): smoke test HTTP real con servidor
+  local y revisión visual en navegador — sigue bloqueado por no tener un
+  intérprete Python real en el PATH de este entorno.
+
+## Pruebas realizadas sobre el Segmento 1
 
 - Sintaxis JS validada (`node --check`) en los 3 módulos — sin errores.
 - Verificación por filesystem: los 11 archivos/rutas referenciados por
@@ -45,10 +113,6 @@ y las clases/variables ya usadas por `index.html`.
   instalado) — pendiente smoke test HTTP real y revisión visual en
   navegador (Lighthouse, consola, responsive) la próxima vez que se
   trabaje en una máquina con Python/servidor local disponible.
-- Pendiente: smoke test DOM (jsdom) que sí corrió en la versión anterior
-  de este segmento — no se repitió aquí porque no hay evidencia de que
-  jsdom siga instalado tras la pérdida de archivos; verificar antes de
-  asumir que sigue disponible.
 
 ## Decisiones ya tomadas (confirmadas por Tony)
 
@@ -68,19 +132,35 @@ y las clases/variables ya usadas por `index.html`.
   "en construcción".
 - Copy tomado de https://www.addv.mx/ real (home, "¿Por qué ADDV?", footer,
   redes sociales) — no se inventó contenido institucional.
+- (Segmento 2) Copy de `nosotros.html` y datos de contacto tomados de
+  `http://localhost:8080/` (ver nota de fuente de verdad arriba) — no
+  inventado.
+- (Segmento 2) Campos del formulario de contacto: Nombre, Correo
+  electrónico, Teléfono, Empresa, Sitio web, Mensaje — los 6 obligatorios
+  (el sitio real los marca opcionales en Teléfono/Empresa, pero Tony ya
+  había decidido "todos obligatorios" antes de este segmento).
+- (Segmento 2) `.wa-float` aparece en todas las páginas, no solo contacto.
+- (Segmento 2) Footer/marca sincronizado en las 3 páginas existentes con
+  los datos de `localhost:8080` (correo, oficina adicional, razón social).
 
 ## Decisiones pendientes de confirmar con Tony
 
-- Detalle de copy y estructura interna de `servicios.html` (¿listar más
-  servicios de los 5 usados en el teaser de home, o son los mismos?).
-- Si el botón flotante de WhatsApp (clase `.wa-float` ya definida en CSS,
-  no usada todavía) debe aparecer en todas las páginas o solo en contacto.
+- **Nueva (Segmento 2):** el teaser de servicios en home (5 tarjetas) y el
+  copy institucional en general puede haber quedado desactualizado frente
+  a `localhost:8080`, que muestra 6 servicios (Desarrollo de Software,
+  Business Intelligence, Arquitectura & Cloud, UX/UI Design, Integración &
+  Automatización, Soporte & Mantenimiento) en vez de los 5 actuales. Definir
+  para `servicios.html` (Segmento 3) si se listan los 6 reales o se
+  mantiene el set actual.
+- **Nueva (Segmento 2):** `localhost:8080` tiene un ítem de nav "Recursos"
+  (blog, guías, webinars, plantillas, FAQ) y un botón CTA "Hablemos" en el
+  header que no existen en el plan original de 6 páginas de este sitio
+  estático. ¿Se agregan al alcance o se dejan fuera por ahora?
 - Si se debe reemplazar el mark "+V" en SVG por un logo oficial real (no se
   proporcionó archivo de logo).
 
 ## Qué falta (próximos segmentos, ya aprobados en el plan)
 
-2. `nosotros.html` y `contacto.html` (formulario WhatsApp).
 3. `servicios.html`.
 4. `productos.html`.
 5. `casos-exito.html`.

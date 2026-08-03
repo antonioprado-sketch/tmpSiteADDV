@@ -23,6 +23,7 @@
   --color-ink-soft: #4A5468;
   --color-border: #E4DFD1;
   --color-line-on-dark: rgba(247, 244, 236, 0.18);
+  --color-error: #B3261E;
 
   /* Superficies */
   --color-bg: var(--color-paper);

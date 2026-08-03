@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ADDV | Consultoría TI y Transformación Digital en México</title>
-  <meta name="description" content="ADDV (Agile Development and Design + Value) es una empresa mexicana de tecnología especializada en desarrollo de software a la medida, consultoría TI y transformación digital para banca, fintech y energía." />
+  <title>Contacto | ADDV — Consultoría TI y Transformación Digital</title>
+  <meta name="description" content="Contacta a ADDV: completa el formulario o escríbenos directo por WhatsApp para hablar de tu proyecto de consultoría tecnológica y transformación digital." />
   <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
   <link rel="alternate icon" type="image/x-icon" href="./favicon.ico" />
-  <link rel="canonical" href="https://www.addv.mx/" />
+  <link rel="canonical" href="https://www.addv.mx/contacto" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="./assets/css/tokens.css" />
   <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/home.css" />
+  <link rel="stylesheet" href="./assets/css/contacto.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -31,12 +31,12 @@
       </a>
 
       <nav class="nav-links" aria-label="Principal">
-        <a href="./index.html" aria-current="page">Inicio</a>
+        <a href="./index.html">Inicio</a>
         <a href="./servicios.html">Servicios</a>
         <a href="./productos.html">Productos</a>
         <a href="./casos-exito.html">Casos de éxito</a>
         <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html">Contacto</a>
+        <a href="./contacto.html" aria-current="page">Contacto</a>
       </nav>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
@@ -48,151 +48,98 @@
 
     <div class="container">
       <nav class="nav-mobile" id="mobile-menu" aria-label="Menú móvil">
-        <a href="./index.html" aria-current="page">Inicio</a>
+        <a href="./index.html">Inicio</a>
         <a href="./servicios.html">Servicios</a>
         <a href="./productos.html">Productos</a>
         <a href="./casos-exito.html">Casos de éxito</a>
         <a href="./nosotros.html">Nosotros</a>
-        <a href="./contacto.html">Contacto</a>
+        <a href="./contacto.html" aria-current="page">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow hero-eyebrow">Agile Development &amp; Design + Value</p>
-          <h1>Agregamos valor real a tu negocio.</h1>
-          <p class="hero-lede">
-            Consultoría TI y transformación digital para empresas mexicanas de banca,
-            energía y fintech: desarrollo de software a la medida, soluciones cloud,
-            analítica de datos y UX/UI bajo metodologías ágiles.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="./contacto.html">Solicita una visita</a>
-            <a class="btn btn-outline" href="./servicios.html" style="color:var(--color-paper); border-color:var(--color-line-on-dark);">Ver servicios</a>
-          </div>
-        </div>
-
-        <div class="hero-panel reveal">
-          <dl>
-            <div>
-              <dt>Partners tecnológicos</dt>
-              <dd>AWS · Microsoft · Kentico</dd>
-            </div>
-            <div>
-              <dt>Sectores</dt>
-              <dd>Banca · Energía · Fintech</dd>
-            </div>
-            <div>
-              <dt>Metodología</dt>
-              <dd>Ágil, orientada a valor</dd>
-            </div>
-            <div>
-              <dt>Alcance</dt>
-              <dd>PyMEs y grandes empresas</dd>
-            </div>
-          </dl>
-        </div>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Contacto</p>
+        <h1>Hablemos de tu proyecto</h1>
+        <p class="page-lede">
+          Completa el formulario y te contactaremos en menos de un día
+          hábil, o escríbenos directo por WhatsApp si prefieres una
+          respuesta inmediata.
+        </p>
       </div>
     </section>
-
-    <div class="partner-strip">
-      <div class="container">
-        <span class="label">Empresas que ya confían en ADDV</span>
-        <ul>
-          <li>Invex</li>
-          <li>Iberdrola / Cox</li>
-          <li>ADITMEX</li>
-          <li>Dentool</li>
-          <li>CashClick</li>
-        </ul>
-      </div>
-    </div>
 
     <section class="section">
-      <div class="container">
-        <p class="eyebrow">Qué hacemos</p>
-        <h2 style="max-width: 22ch; font-size: var(--fs-xl); margin-bottom: var(--sp-6);">
-          Soluciones de tecnología que se sostienen después de la entrega.
-        </h2>
+      <div class="container contact-grid">
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-website">No llenar este campo</label>
+            <input type="text" id="hp-website" name="hp-website" tabindex="-1" autocomplete="off" />
+          </div>
 
-        <div class="services-teaser">
-          <article class="service-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 18a4 4 0 0 1-1-7.87A5.5 5.5 0 0 1 16.5 8a4.5 4.5 0 0 1 .5 9H7Z"/></svg>
-            </div>
-            <h3>Soluciones cloud</h3>
-            <p>Arquitectura, migración y operación en AWS y Microsoft Azure para cargas críticas de banca, energía y fintech.</p>
-          </article>
+          <div class="form-field">
+            <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
+            <input type="text" id="f-nombre" name="nombre" required autocomplete="name" aria-describedby="err-nombre" />
+            <p class="field-error" id="err-nombre" role="alert"></p>
+          </div>
 
-          <article class="service-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5m6 14V9m6 10V3"/></svg>
-            </div>
-            <h3>Analítica de datos</h3>
-            <p>Inteligencia de negocio y datos accionables para decisiones más rápidas.</p>
-          </article>
+          <div class="form-field">
+            <label for="f-correo">Correo electrónico <span aria-hidden="true">*</span></label>
+            <input type="email" id="f-correo" name="correo" required autocomplete="email" aria-describedby="err-correo" />
+            <p class="field-error" id="err-correo" role="alert"></p>
+          </div>
 
-          <article class="service-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
-            </div>
-            <h3>UX/UI</h3>
-            <p>Diseño centrado en el usuario que reduce deserción y aumenta el rendimiento real del producto.</p>
-          </article>
+          <div class="form-field">
+            <label for="f-telefono">Teléfono <span aria-hidden="true">*</span></label>
+            <input type="tel" id="f-telefono" name="telefono" required autocomplete="tel" aria-describedby="err-telefono" />
+            <p class="field-error" id="err-telefono" role="alert"></p>
+          </div>
 
-          <article class="service-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 3 4.58V22l2-1 2 1v-8.42A5 5 0 0 0 17 9V7a5 5 0 0 0-5-5Z"/></svg>
-            </div>
-            <h3>Desarrollo a la medida</h3>
-            <p>Software construido para el proceso real del negocio, no al revés.</p>
-          </article>
+          <div class="form-field">
+            <label for="f-empresa">Empresa <span aria-hidden="true">*</span></label>
+            <input type="text" id="f-empresa" name="empresa" required autocomplete="organization" aria-describedby="err-empresa" />
+            <p class="field-error" id="err-empresa" role="alert"></p>
+          </div>
 
-          <article class="service-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 .01 0Z"/></svg>
-            </div>
-            <h3>Metodologías ágiles</h3>
-            <p>Sprints con entregables medibles y visibilidad continua para el cliente.</p>
-          </article>
-        </div>
+          <div class="form-field form-field-full">
+            <label for="f-sitio">Sitio web <span aria-hidden="true">*</span></label>
+            <input type="url" id="f-sitio" name="sitio" required placeholder="https://ejemplo.com" autocomplete="url" aria-describedby="err-sitio" />
+            <p class="field-error" id="err-sitio" role="alert"></p>
+          </div>
 
-        <div style="margin-top: var(--sp-6);">
-          <a class="btn btn-outline" href="./servicios.html">Ver todos los servicios</a>
-        </div>
-      </div>
-    </section>
+          <div class="form-field form-field-full">
+            <label for="f-mensaje">Mensaje <span aria-hidden="true">*</span></label>
+            <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="err-mensaje"></textarea>
+            <p class="field-error" id="err-mensaje" role="alert"></p>
+          </div>
 
-    <section class="section values-section">
-      <div class="container">
-        <p class="eyebrow" style="color: var(--color-gold-400);">Por qué ADDV</p>
-        <h2 style="color: var(--color-paper); font-size: var(--fs-xl); max-width: 26ch; margin-bottom: var(--sp-2);">
-          El objetivo fundamental es satisfacer a los clientes con un servicio de calidad no negociable, confianza y compromiso.
-        </h2>
-        <div class="values-grid" style="margin-top: var(--sp-6);">
-          <div class="value-item reveal"><h4>Responsabilidad</h4><p>Con cada compromiso adquirido.</p></div>
-          <div class="value-item reveal"><h4>Compromiso</h4><p>Con el resultado del cliente.</p></div>
-          <div class="value-item reveal"><h4>Calidad</h4><p>No negociable en cada entrega.</p></div>
-          <div class="value-item reveal"><h4>Rigor</h4><p>En metodología y ejecución.</p></div>
-          <div class="value-item reveal"><h4>Agregar valor</h4><p>Más allá de lo solicitado.</p></div>
-          <div class="value-item reveal"><h4>Confianza</h4><p>Base de cada relación de largo plazo.</p></div>
-        </div>
-        <div style="margin-top: var(--sp-6);">
-          <a class="btn btn-primary" href="./nosotros.html">Conoce ADDV</a>
-        </div>
-      </div>
-    </section>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            <p class="form-hint">Se abrirá WhatsApp con tu mensaje ya redactado.</p>
+          </div>
+        </form>
 
-    <section class="cta-band section">
-      <div class="container">
-        <div>
-          <h2>¿Listo para probar algo diferente?</h2>
-          <p>“Locura es hacer lo mismo una y otra vez esperando obtener resultados diferentes.” — Albert Einstein</p>
-        </div>
-        <a class="btn btn-primary" href="./contacto.html">Solicita una visita</a>
+        <aside class="contact-info" aria-label="Información de contacto">
+          <div>
+            <h3>WhatsApp directo</h3>
+            <a class="contact-link" href="https://wa.me/525539944697" target="_blank" rel="noopener noreferrer">+52 55 3994 4697</a>
+          </div>
+          <div>
+            <h3>Correo</h3>
+            <a class="contact-link" href="mailto:contacto@addv.mx">contacto@addv.mx</a>
+          </div>
+          <div>
+            <h3>Oficina principal</h3>
+            <p>Homero 229, Master Suite 3, Privado 5<br />Polanco, Ciudad de México, 11560</p>
+            <a class="contact-link" href="tel:+525552542235">+52 (55) 5254 2235</a>
+          </div>
+          <div>
+            <h3>Oficina adicional</h3>
+            <p>C. W. A. Mozart 555<br />La Loma, 58290 Morelia, Mich.</p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -261,5 +208,6 @@
   </a>
 
   <script type="module" src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/contacto.js"></script>
 </body>
 </html>
