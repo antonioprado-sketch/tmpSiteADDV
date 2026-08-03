@@ -1,13 +1,41 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: Segmento 4 completado (2026-08-03) —
-`productos.html`.
+Última actualización: Segmento 5 completado (2026-08-03) —
+`casos-exito.html`. **Las 6 páginas del sitio ya existen** — ya no quedan
+links internos rotos en ninguna página. Falta el checklist final
+(Segmento 6: accesibilidad, performance, Lighthouse, cierre de
+documentación).
 
 Nota sobre el Segmento 1: la carpeta `assets/` y los archivos raíz
 (`robots.txt`, `sitemap.xml`, `favicon.ico`) se habían perdido del disco
 (no había repo git para recuperarlos); se regeneraron desde cero. **Ya se
 inicializó `git`** (commit `f96afbd`) para que esto no vuelva a pasar sin
 rastro — remoto pendiente de que Tony dé la URL del repo.
+
+## Qué existe (Segmento 5 — Casos de éxito)
+
+- `casos-exito.html`: dos secciones, por decisión explícita de Tony
+  (combinar ambos formatos):
+  1. **Clientes reales** — Invex (banca), Iberdrola/Cox (energía),
+     ADITMEX (mentoría tecnológica), cada uno con formato Reto/Solución/
+     Resultado usando solo los hechos ya confirmados en este documento
+     (sin inventar métricas ni detalles no dados).
+  2. **Otros ejemplos** — 4 tarjetas genéricas por industria (Energía &
+     Utilities, Servicios Financieros, Logística, Emprendedores), copy
+     tomado de `http://localhost:8080/casos-de-exito`, cada una marcada
+     explícitamente "Ejemplo ilustrativo — caso real disponible bajo
+     solicitud" (igual que el sitio real) para no confundirlas con casos
+     reales. El texto de "Emprendedores" en el sitio real estaba muy
+     escueto/con errores de gramática ("ayudarles a ser organizado"); se
+     redactó con el mismo nivel de detalle que las otras 3 tarjetas
+     ilustrativas, sin agregar hechos nuevos, solo ordenando la idea ya
+     dada.
+- `assets/css/casos-exito.css`: grid de tarjetas de caso con
+  Reto/Solución/Resultado (`<dl>`), tag de sector para clientes reales,
+  tag distinta ("Ejemplo ilustrativo") para las genéricas.
+- Con esta página, **las 6 páginas del plan original ya existen** — se
+  verificó que ningún link interno del sitio apunta a una página
+  inexistente.
 
 ## Qué existe (Segmento 4 — Productos)
 
@@ -125,6 +153,18 @@ pendientes" abajo.
   terceros; documenta qué se necesitaría si se decide incorporarla más
   adelante, y advierte no usar logos reales de clientes sin autorización.
 
+## Pruebas realizadas sobre el Segmento 5
+
+- Verificación por filesystem: `casos-exito.html` y
+  `assets/css/casos-exito.css` existen en disco.
+- Sanity check por grep: exactamente un `<h1>`, `lang="es"` presente,
+  `aria-controls="mobile-menu"` apunta a un id real, 21 `<dt>` y 21 `<dd>`
+  (balanceados, 7 tarjetas × 3 pares Reto/Solución/Resultado).
+- Verificado que las 6 páginas del sitio ya se referencian entre sí sin
+  links rotos (`casos-exito.html` aparecía ya en el nav/footer de las 5
+  páginas anteriores).
+- Sin JS nuevo en este segmento.
+
 ## Pruebas realizadas sobre el Segmento 4
 
 - Verificación por filesystem: `productos.html` y
@@ -179,7 +219,9 @@ pendientes" abajo.
 - Casos de éxito confirmados: Invex (banca en línea, UX evitó deserción),
   Iberdrola/Cox (portal antes inoperante, UX lo simplificó y aumentó
   rendimiento), ADITMEX (mentoría tecnológica, aumento de casos de éxito en
-  ventas y eficiencia) + trabajo previo de propuestas ADDV.
+  ventas y eficiencia) + trabajo previo de propuestas ADDV. (Segmento 5:
+  implementados, combinados con 4 ejemplos ilustrativos genéricos por
+  decisión explícita.)
 - Productos confirmados: portal de facturación para emprendedores (sin
   timbrado CFDI, foco en gestión organizada/madurez tecnológica con su
   contador) y fintech de marca blanca — esta última se publica marcada
@@ -217,6 +259,5 @@ pendientes" abajo.
 
 ## Qué falta (próximos segmentos, ya aprobados en el plan)
 
-5. `casos-exito.html`.
 6. Checklist final: accesibilidad, performance, Lighthouse, cierre de
    documentación.

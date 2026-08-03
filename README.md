@@ -48,14 +48,14 @@ no usa `fetch` a assets locales).
 ├── contacto.html         Contacto (formulario → WhatsApp, sin backend)
 ├── servicios.html        Servicios (7 servicios con detalle y bullets)
 ├── productos.html        Productos (Portal de Facturación, ADDV Fintech)
-├── casos-exito.html      (pendiente — próximo segmento)
+├── casos-exito.html      Casos de éxito (clientes reales + ejemplos)
 ├── assets/
 │   ├── css/               tokens.css (paleta/tipografía), main.css
 │   │                       (compartido: header/nav/footer/botones/
 │   │                       page-hero/formularios/cta-band/wa-float),
 │   │                       home.css, nosotros.css, contacto.css,
-│   │                       servicios.css, productos.css (específicos de
-│   │                       cada página)
+│   │                       servicios.css, productos.css, casos-exito.css
+│   │                       (específicos de cada página)
 │   ├── js/                 main.js (nav+reveal, todas las páginas),
 │   │                       nav.js, reveal.js, contacto.js (solo en
 │   │                       contacto.html — validación + WhatsApp)
