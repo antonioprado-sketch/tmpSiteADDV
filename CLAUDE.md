@@ -51,10 +51,14 @@ archivo actualizados al cerrar cada segmento.
 
 ## Convenciones de código
 
-- **Sistema visual (2026-08-03, rebrand explícito de Tony):** Tailwind CDN
+- **Sistema visual (2026-08-03, rebrand explícito de Tony; paleta sin
+  negro desde 2026-08-04):** Tailwind CDN
   (`cdn.tailwindcss.com?plugins=forms,container-queries`) + un bloque
   `<script id="tailwind-config">` con la config Material Design 3 (paleta
-  negro `#000000` + azul `#0058be`, radios, spacing, tipografía). Ya no
+  primario `#03285B` + azul `#0058be`, radios, spacing, tipografía).
+  `primary`/`tertiary` eran `#000000` (negro puro) — sustituidos por
+  `#03285B` por instrucción explícita de Tony ("no uses colores negros").
+  Ya no
   existe `assets/css/*.css` propio — se eliminó (tokens.css, main.css,
   home.css, etc.) porque Tailwind CDN cubre todo. El bloque de config se
   repite **idéntico** en las 6 páginas HTML (mismo criterio de repetición
@@ -73,8 +77,10 @@ archivo actualizados al cerrar cada segmento.
 - Nav y footer se repiten manualmente en cada página HTML (no hay motor de
   plantillas en un sitio 100% estático) — al editar nav/footer, replicar el
   cambio en todas las páginas existentes.
-- Marca: mark "+V" en SVG inline (ver `index.html`), recoloreado a
-  negro/azul (antes navy+oro). Tipografía Lato (antes Fraunces+Manrope).
+- Marca: logo real `assets/images/logo-addv.png` (wordmark ADDV
+  navy+cyan, entregado por Tony 2026-08-04) en `<img>` en header/footer
+  de las 6 páginas — reemplaza el mark "+V" en SVG inline que se usaba
+  antes como placeholder. Tipografía Lato (antes Fraunces+Manrope).
   Iconografía con Material Symbols Outlined (`<span
   class="material-symbols-outlined">`) para iconos genéricos de UI; el
   ícono de WhatsApp del botón flotante se conserva como SVG inline propio

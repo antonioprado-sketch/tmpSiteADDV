@@ -1,6 +1,65 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **Rebrand completo (2026-08-03)** — las 6 páginas
+Última actualización: **Favicons + logo real + paleta sin negro (2026-08-03/04)**
+
+- **Favicons**: Tony entregó `assets/favicon_io.zip` (favicon.io) →
+  extraído a `assets/icons/` (svg + apple-touch-icon + 32/16px png +
+  ico + android-chrome 192/512 + `site.webmanifest`). `favicon.ico`
+  suelto en raíz eliminado (consolidado en `assets/icons/`).
+  `site.webmanifest` traía rutas absolutas (`/android-chrome-*.png`,
+  rompían en `file://` y subdirectorio de GitHub Pages) — corregidas a
+  relativas al manifest; `name`/`short_name` rellenados a "ADDV"
+  (venían vacíos), `theme_color` alineado a la paleta nueva
+  (`#03285B`). `<head>` de las 6 páginas actualizado con el set
+  completo de `<link>` (rutas `./assets/icons/...`).
+- **Logo real**: Tony entregó `Banner.png` (wordmark ADDV navy+cyan,
+  1961×802, fondo blanco opaco) → copiado a
+  `assets/images/logo-addv.png`. Reemplaza el mark "+V" en SVG inline +
+  texto "ADDV" en header y footer de las 6 páginas (12 sitios) por
+  `<img>` con `width`/`height` explícitos (evita CLS). **Cierra el
+  pendiente abierto** "reemplazar el mark +V por el logo oficial" (ver
+  Decisiones pendientes, abajo).
+- **Paleta — negro eliminado**: por instrucción explícita de Tony, los
+  tokens `primary`/`tertiary` (antes `#000000`) pasan a
+  `#03285B` (color primario) en el bloque `tailwind-config` de las 6
+  páginas + `theme_color` del manifest. Verificado por grep: cero
+  `#000000`/`text-black`/`bg-black` en el repo.
+- **`servicios.html` rediseñado** (2026-08-04): Tony pegó un mockup Stitch
+  completo (hero + grid de 3 tarjetas genéricas + timeline de proceso +
+  form de contacto duplicado sin backend + header/footer propios con
+  links `href="#"`) con instrucción de aplicarlo y publicar sin
+  preguntar más. Se adaptó en vez de pegarlo literal, por conflicto con
+  reglas no negociables de `CLAUDE.md`:
+  - Los 7 servicios reales (con sus `id` ancla, enlazados desde el
+    teaser de `index.html`) se conservaron completos — el mockup solo
+    traía 3 genéricos, adoptarlo tal cual habría borrado contenido real
+    y roto los 7 links del teaser de home.
+  - El `<form>` de "lead gen" del mockup no tiene backend ni JS — se
+    omitió (regresión: en este sitio el único flujo de contacto válido
+    es WhatsApp vía `contacto.js`, ver arquitectura no negociable). Se
+    conservó el CTA a `contacto.html` ya existente.
+  - Header/footer propios del mockup (links `href="#"`, sin menú móvil
+    accesible, sin logo real, email falso `hello@addv.com`) se
+    descartaron — se mantuvo el header/footer real compartido (nav real,
+    `nav.js`/`.nav-toggle`/`#mobile-menu`, logo `logo-addv.png`, datos de
+    contacto reales) para no romper accesibilidad ni consistencia con
+    las otras 5 páginas.
+  - `primary: "#000000"` del mockup se ignoró — ya se había resuelto a
+    `#03285B` en este mismo segmento.
+  - Se tomó del mockup: el estilo visual (grid de tarjetas con
+    `shadow`/`hover:-translate-y-1`, franja "Nuestro Proceso" de 5 pasos
+    sobre `bg-primary`) — contenido del proceso es genérico/metodológico,
+    no un hecho de negocio, así que no había nada que confirmar. Sombras
+    aplicadas como utilidades arbitrarias de Tailwind
+    (`shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)]`) en vez de agregar
+    tokens nuevos a `tailwind-config` — evita que el bloque de config
+    diverja entre las 6 páginas (`CLAUDE.md`: debe ser idéntico).
+  - Reveal-on-scroll reutiliza `.reveal`/`reveal.js` ya existente — no se
+    agregó el script `IntersectionObserver` duplicado que traía el
+    mockup.
+- **Publicado en GitHub Pages** — ver sección de despliegue más abajo.
+
+Última actualización de rebrand: **Rebrand completo (2026-08-03)** — las 6 páginas
 migradas de CSS propio (tokens.css/main.css/*.css, navy+oro, Fraunces+
 Manrope) a Tailwind CDN con paleta Material Design 3 (negro+azul
 `#0058be`, Lato), por decisión explícita de Tony a partir de mockups de
@@ -385,9 +444,9 @@ pendientes" abajo.
   agregó a las 4 páginas (ahora 6).
 - **Resuelta (2026-08-03):** ítem de nav "Recursos" — se deja fuera del
   alcance, no se crea página ni link.
-- **Abierta:** reemplazar el mark "+V" en SVG por el logo oficial real de
-  ADDV — Tony va a proporcionar el archivo (SVG/PNG) en el chat; falta
-  que lo entregue.
+- **Resuelta (2026-08-04):** logo real recibido (`Banner.png` →
+  `assets/images/logo-addv.png`) y aplicado en header/footer de las 6
+  páginas, reemplazando el mark "+V" en SVG inline.
 
 ## Qué existe (post-Segmento 6 — ajustes de pendientes, 2026-08-03)
 
