@@ -57,6 +57,33 @@
   - Reveal-on-scroll reutiliza `.reveal`/`reveal.js` ya existente — no se
     agregó el script `IntersectionObserver` duplicado que traía el
     mockup.
+- **`productos.html` rediseñado** (2026-08-04): mismo patrón que
+  `servicios.html` — Tony pegó un mockup Stitch con hero + 3 productos
+  ficticios ("ADDV DataHub", "ADDV Insights", "ADDV Sentinel", con
+  features inventadas: cifrado end-to-end, arquitectura Zero-Trust,
+  modelos ML) + nav/footer propios con `href="#"`. Se adaptó, no se pegó
+  literal:
+  - Los 2 productos reales confirmados (Portal de Facturación, ADDV
+    Fintech, con su copy y badges de estatus exactos) se conservaron —
+    los 3 productos del mockup son inventados, no existen, adoptarlos
+    habría publicado información falsa sobre el catálogo real de ADDV.
+  - Se tomó del mockup: estilo de hero (badge + headline grande + 2
+    botones), estilo de tarjeta (`shadow`/`hover:-translate-y-1`,
+    icono en badge redondeado) — mismo lenguaje visual ya aplicado en
+    `servicios.html` (sombras `rgba(3,40,91,...)`, alineadas a
+    `#03285B`).
+  - Sin fotos de stock nuevas (el mockup traía 4 imágenes
+    `lh3.googleusercontent.com` genéricas con `alt` placeholder tipo "A
+    macro shot of...") — no hay fotografía real de los productos (no
+    existen aún) y agregar stock sin relación real no estaba entre las
+    decisiones ya tomadas para esta página.
+  - `primary: "#000000"` del mockup, ignorado (ya resuelto a `#03285B`).
+    Header/footer/nav del mockup (`href="#"`, sin logo real, sin menú
+    móvil accesible), descartados — se mantuvo el header/footer
+    compartido real de las 6 páginas.
+  - Botón "Ver productos" enlaza a `#catalogo` (ancla real en la misma
+    página); "Hablemos" a `contacto.html` — ambos funcionales, a
+    diferencia de los botones `href="#"` del mockup.
 - **Publicado en GitHub Pages** — ver sección de despliegue más abajo.
 
 Última actualización de rebrand: **Rebrand completo (2026-08-03)** — las 6 páginas

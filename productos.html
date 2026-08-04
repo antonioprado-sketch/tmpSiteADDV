@@ -112,17 +112,24 @@
 </header>
 
 <main class="flex-grow" id="main">
-<section class="bg-surface-container-lowest border-b border-outline-variant">
-<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-xl pb-xl">
-<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-sm">Productos</p>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface mb-md">Productos ADDV</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Además de nuestros servicios de consultoría, estamos desarrollando productos propios para resolver retos específicos de negocio.</p>
+<section class="pt-xl pb-xl md:pt-16 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="inline-flex items-center gap-2 bg-secondary-container/10 px-md py-xs rounded-full w-fit mb-lg">
+<span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">widgets</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Productos ADDV</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface mb-md max-w-3xl">Productos propios para retos específicos de negocio</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg">Además de nuestros servicios de consultoría, estamos desarrollando productos propios para resolver retos específicos de negocio.</p>
+<div class="flex gap-md">
+<a class="bg-secondary text-on-secondary font-label-md text-label-md px-lg py-md rounded shadow-sm hover:bg-on-secondary-fixed-variant transition-colors" href="#catalogo">Ver productos</a>
+<a class="bg-transparent border border-outline text-on-surface font-label-md text-label-md px-lg py-md rounded hover:bg-surface-container-low transition-colors" href="./contacto.html">Hablemos</a>
 </div>
 </section>
 
-<section class="py-xl md:py-[80px] px-margin-mobile md:px-margin-desktop">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<article class="reveal bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col gap-sm shadow-[0px_4px_12px_rgba(15,23,42,0.05)]">
+<section class="py-xl md:py-16 bg-surface-container-lowest border-y border-outline-variant" id="catalogo">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<article class="reveal group bg-white border border-outline-variant/20 rounded-xl p-lg shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] hover:shadow-[0_20px_25px_-5px_rgba(3,40,91,0.08)] transition-all duration-300 hover:-translate-y-1 flex flex-col gap-sm">
+<div class="w-11 h-11 rounded-lg bg-secondary-container/10 flex items-center justify-center text-secondary mb-xs"><span class="material-symbols-outlined" aria-hidden="true">receipt_long</span></div>
 <span class="inline-flex self-start bg-secondary-container/10 text-secondary font-label-sm text-label-sm px-sm py-xs rounded-full uppercase tracking-wide">Producto ADDV · Próximamente</span>
 <h2 class="font-headline-md text-headline-md text-on-surface mt-xs">Portal de Facturación</h2>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
@@ -130,13 +137,15 @@ Emite, gestiona y concilia tu facturación electrónica sin depender de WhatsApp
 </p>
 </article>
 
-<article class="reveal bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col gap-sm shadow-[0px_4px_12px_rgba(15,23,42,0.05)]">
+<article class="reveal group bg-white border border-outline-variant/20 rounded-xl p-lg shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] hover:shadow-[0_20px_25px_-5px_rgba(3,40,91,0.08)] transition-all duration-300 hover:-translate-y-1 flex flex-col gap-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-xs"><span class="material-symbols-outlined" aria-hidden="true">account_balance</span></div>
 <span class="inline-flex self-start bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-sm py-xs rounded-full uppercase tracking-wide">Producto ADDV · En construcción</span>
 <h2 class="font-headline-md text-headline-md text-on-surface mt-xs">ADDV Fintech</h2>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
 Soluciones financieras de marca blanca para negocios que buscan agilidad en pagos, cobros y flujo de efectivo, integradas a tu operación bajo tu propia marca. Próximamente más detalles.
 </p>
 </article>
+</div>
 </div>
 </section>
 
