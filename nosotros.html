@@ -113,17 +113,20 @@
 
 <main class="flex-grow" id="main">
 <!-- Hero -->
-<section class="bg-surface-bright pt-xl pb-margin-desktop px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
+<section class="w-full bg-surface-bright pt-xl pb-margin-desktop px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-xl md:gap-margin-desktop">
 <div class="flex-1 space-y-lg">
-<p class="font-label-md text-label-md text-secondary uppercase tracking-widest">Nosotros</p>
+<div class="inline-flex items-center gap-2 bg-secondary-container/10 px-md py-xs rounded-full w-fit">
+<span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">diversity_3</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Nosotros</span>
+</div>
 <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface">La calidad y la confianza no son negociables</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
 Somos la firma de consultoría tecnológica que genera valor real y transforma negocios con confianza. Nuestra estrategia se basa en entender el negocio, aplicar tecnología inteligente y entregar resultados medibles que impulsan el crecimiento sostenible de nuestros clientes.
 </p>
 </div>
 <div class="flex-1 w-full reveal">
-<div class="aspect-video w-full rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(15,23,42,0.05)] border border-outline-variant relative">
+<div class="aspect-video w-full rounded-xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] border border-outline-variant relative">
 <img class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1FUvA07THoj0PPyJu6C0uviCwMRub-QUOjf-BaLLSHTH49E4SMiHIRsmnrqp6XhJXnGd-BbcoYZUAddsa995a0cO2Nsf1KvdMgg7UzIlQCUXEH4jsA2Eh1mAF9wbEoGtmNu7Z2_o6sUVAIgPL5a7grbcPMkDmXeR-F8wHBSRkCEAgHXFTCRXvQSRrOuS7SXtkbuWRx6HQKErF0-4DbF4pocUowX5v7Mkd3QVEXHnH4k0mcuUR4EQ--Q" alt="Equipo de ADDV colaborando en una oficina moderna sobre arquitecturas de datos en pantallas de alta resolución" />
 </div>
 </div>
@@ -138,29 +141,104 @@ Somos la firma de consultoría tecnológica que genera valor real y transforma n
 </div>
 </section>
 
+<!-- Nuestra Experiencia -->
+<section class="reveal py-xl md:py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-xl text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Nuestra Experiencia</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Números que respaldan nuestra trayectoria y compromiso.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] border border-outline-variant flex flex-col justify-center items-center text-center hover:bg-surface-bright transition-colors duration-300">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" aria-hidden="true">schedule</span>
+<h3 class="font-headline-xl text-headline-xl text-primary mb-xs">15+</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Años en el mercado</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] border border-outline-variant flex flex-col justify-center items-center text-center hover:bg-surface-bright transition-colors duration-300">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" aria-hidden="true">task_alt</span>
+<h3 class="font-headline-xl text-headline-xl text-primary mb-xs">500+</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Proyectos entregados</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_4px_20px_-2px_rgba(3,40,91,0.04)] border border-outline-variant flex flex-col justify-center items-center text-center hover:bg-surface-bright transition-colors duration-300">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" aria-hidden="true">corporate_fare</span>
+<h3 class="font-headline-xl text-headline-xl text-primary mb-xs">250+</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Clientes corporativos</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Nuestra Misión -->
+<section class="reveal py-xl md:py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-xl items-start">
+<div class="col-span-1 md:col-span-5 space-y-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Nuestra Misión</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+Proporcionar infraestructura tecnológica de vanguardia que simplifique la complejidad operativa. Nos dedicamos a diseñar sistemas resilientes que no solo resuelven los desafíos actuales, sino que anticipan las necesidades futuras del entorno empresarial global.
+</p>
+<div class="h-1 w-16 bg-secondary"></div>
+</div>
+<div class="col-span-1 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="p-lg border border-outline-variant rounded-xl hover:bg-surface-bright transition-colors duration-200">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded bg-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-fixed-variant" aria-hidden="true">architecture</span></div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Precisión</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Actuamos con exactitud matemática en cada línea de código y cada decisión de diseño, asegurando resultados impecables y funcionales.</p>
+</div>
+<div class="p-lg border border-outline-variant rounded-xl hover:bg-surface-bright transition-colors duration-200">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded bg-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-fixed-variant" aria-hidden="true">security</span></div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Confiabilidad</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Construimos sistemas robustos diseñados para el alto rendimiento y la disponibilidad continua, garantizando la seguridad de la información.</p>
+</div>
+<div class="p-lg border border-outline-variant rounded-xl hover:bg-surface-bright transition-colors duration-200">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded bg-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-fixed-variant" aria-hidden="true">visibility</span></div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Transparencia</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fomentamos una comunicación abierta y honesta, proporcionando visibilidad total sobre procesos, métricas y metodologías.</p>
+</div>
+<div class="p-lg border border-outline-variant rounded-xl hover:bg-surface-bright transition-colors duration-200">
+<div class="flex items-center gap-md mb-md">
+<div class="w-10 h-10 rounded bg-secondary-fixed flex items-center justify-center"><span class="material-symbols-outlined text-on-secondary-fixed-variant" aria-hidden="true">rocket_launch</span></div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Evolución</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mantenemos un enfoque constante en la innovación estructurada, adaptando nuestras soluciones a las tecnologías emergentes y comprobadas.</p>
+</div>
+</div>
+</div>
+</section>
+
 <!-- Pilares -->
-<section class="py-xl md:py-[80px] bg-primary">
+<section class="py-xl md:py-16 bg-primary">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
 <p class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-sm">Pilares de marca</p>
-<h2 class="font-headline-md text-headline-md text-on-primary max-w-[20ch] mb-xl">Lo que guía cada decisión</h2>
+<h2 class="font-headline-lg text-headline-lg text-on-primary max-w-[20ch] mb-xl">Lo que guía cada decisión</h2>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<article class="reveal border-l-2 border-secondary pl-md py-sm">
+<article class="reveal group bg-tertiary-container/40 border border-white/10 rounded-xl p-lg hover:bg-tertiary-container/70 transition-all duration-300 hover:-translate-y-1">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant mb-md"><span class="material-symbols-outlined" aria-hidden="true">verified</span></div>
 <h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Confianza absoluta</h3>
 <p class="font-body-sm text-body-sm text-inverse-primary">Cumplimos lo que prometemos. Calidad y seguridad en cada entrega.</p>
 </article>
-<article class="reveal border-l-2 border-secondary pl-md py-sm">
+<article class="reveal group bg-tertiary-container/40 border border-white/10 rounded-xl p-lg hover:bg-tertiary-container/70 transition-all duration-300 hover:-translate-y-1">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant mb-md"><span class="material-symbols-outlined" aria-hidden="true">psychology</span></div>
 <h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Inteligencia estratégica</h3>
 <p class="font-body-sm text-body-sm text-inverse-primary">Entendemos el negocio, el mercado y los desafíos del futuro.</p>
 </article>
-<article class="reveal border-l-2 border-secondary pl-md py-sm">
+<article class="reveal group bg-tertiary-container/40 border border-white/10 rounded-xl p-lg hover:bg-tertiary-container/70 transition-all duration-300 hover:-translate-y-1">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant mb-md"><span class="material-symbols-outlined" aria-hidden="true">engineering</span></div>
 <h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Excelencia técnica</h3>
 <p class="font-body-sm text-body-sm text-inverse-primary">Ingeniería de clase mundial, arquitectura y buenas prácticas.</p>
 </article>
-<article class="reveal border-l-2 border-secondary pl-md py-sm">
+<article class="reveal group bg-tertiary-container/40 border border-white/10 rounded-xl p-lg hover:bg-tertiary-container/70 transition-all duration-300 hover:-translate-y-1">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant mb-md"><span class="material-symbols-outlined" aria-hidden="true">bolt</span></div>
 <h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Innovación con impacto</h3>
 <p class="font-body-sm text-body-sm text-inverse-primary">Aplicamos IA, datos y tecnología para generar valor real.</p>
 </article>
-<article class="reveal border-l-2 border-secondary pl-md py-sm">
+<article class="reveal group bg-tertiary-container/40 border border-white/10 rounded-xl p-lg hover:bg-tertiary-container/70 transition-all duration-300 hover:-translate-y-1">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant mb-md"><span class="material-symbols-outlined" aria-hidden="true">trending_up</span></div>
 <h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Resultados que perduran</h3>
 <p class="font-body-sm text-body-sm text-inverse-primary">Medimos, optimizamos y aseguramos ROI de corto y largo plazo.</p>
 </article>

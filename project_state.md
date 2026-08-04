@@ -84,6 +84,44 @@
   - Botón "Ver productos" enlaza a `#catalogo` (ancla real en la misma
     página); "Hablemos" a `contacto.html` — ambos funcionales, a
     diferencia de los botones `href="#"` del mockup.
+- **`servicios.html`**: imagen de fondo decorativa del hero (red/circuito
+  tecnológico, `opacity-20`, `alt=""` por ser puramente decorativa) —
+  Tony pidió explícitamente agregarla tras ver que faltaba vs. el mockup
+  Stitch original. Sin cambio de contenido, solo visual.
+- **`nosotros.html` — Nuestra Experiencia + Nuestra Misión** (2026-08-04):
+  Tony volvió a pedir el mockup Stitch de Nosotros "exactamente igual",
+  esta vez confirmando explícitamente incluir también las secciones que
+  la primera vez se habían dejado fuera por precaución. Se agregaron:
+  - **Nuestra Experiencia**: 3 tarjetas de cifras (15+ años en el
+    mercado, 500+ proyectos entregados, 250+ clientes corporativos).
+    Son cifras del mockup que Tony pegó y confirmó dos veces — a
+    diferencia de una suposición propia, esto es contenido de negocio
+    que el dueño del proyecto proporcionó explícitamente. **Sin
+    verificar**: si estas cifras son exactas o aproximadas — Tony debe
+    confirmar/corregir los números reales antes de que esto se
+    considere dato definitivo de marketing.
+  - **Nuestra Misión + Valores** (Precisión, Confiabilidad,
+    Transparencia, Evolución): agregado como sección nueva junto a
+    "Propósito" (intacto, sin tocar su copy) y "Pilares de marca"
+    (intacto, sin tocar) — quedan 3 bloques de valores/misión en la
+    página (Propósito, Pilares de marca, Misión+Valores), algo
+    redundante en contenido pero es lo que Tony pidió explícitamente
+    ("el resto igual"), no una decisión propia.
+  - Ambas secciones nuevas llevan `.reveal` (mismo sistema de scroll
+    reveal que ya usa el resto del sitio vía `reveal.js`/
+    `IntersectionObserver`) — "animación emergente" pedida por Tony.
+  - **Deliberadamente NO agregado**: la sección "Equipo Directivo" del
+    mockup (4 ejecutivos ficticios con nombre inventado — "Elena
+    Rostova CEO", "David Chen CTO", "Sarah Jenkins COO", "Mateo García
+    VP Design" — y fotos de stock de personas reales atribuidas a esas
+    identidades falsas). A diferencia de las cifras de negocio (que
+    Tony puede confirmar/corregir como dueño de esos datos), esto es
+    cualitativamente distinto: publicar en el sitio real de ADDV fotos
+    de personas reales (modelos de stock) presentadas como ejecutivos
+    con nombres inventados es una posible falsificación de identidad
+    con riesgo legal/reputacional, independientemente de quién lo pida.
+    **Pendiente de decisión de Tony**: si quiere esta sección, debe ser
+    con datos/fotos reales del equipo directivo real de ADDV.
 - **Publicado en GitHub Pages** — ver sección de despliegue más abajo.
 
 Última actualización de rebrand: **Rebrand completo (2026-08-03)** — las 6 páginas
