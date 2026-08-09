@@ -1,6 +1,56 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **Favicons + logo real + paleta sin negro (2026-08-03/04)**
+Última actualización: **Fix de rendimiento PageSpeed Insights (2026-08-09)**
+
+- **Contexto**: Lighthouse mobile de `index.html` daba Performance 57 (FCP 8.6s, LCP
+  10.8s), con 3 causas raíz: cadena de recursos bloqueantes en `<head>` (2 stylesheets
+  de Google Fonts + script síncrono de Tailwind CDN), `logo-addv.png` de 819 KB para un
+  logo mostrado a 78×32px, y la imagen hero de `index.html` (LCP) siendo de terceros
+  (`lh3.googleusercontent.com`) sin `width`/`height`/`fetchpriority` y envuelta en la
+  clase `.reveal` (esperaba a `IntersectionObserver` + transición de 0.6s para pintar).
+  También falló contraste AA en el span cyan `text-[#00BEEF]` de "valor real" (~2:1
+  sobre fondo blanco).
+- **Contraste**: `text-[#00BEEF]` → `text-secondary` (`#0058be`, mismo azul de
+  botones/links, ya definido en el config de Tailwind) en `index.html`. Contraste
+  resultante ~6.7:1.
+- **Logo**: `assets/images/logo-addv.png` redimensionado de 1961×802 a 312×128px
+  (4x el tamaño real de despliegue) vía `System.Drawing`/PowerShell, preservando
+  transparencia. 819 KB → 13 KB. Un solo archivo, sin tocar las 6 páginas (ya
+  apuntaban a la misma ruta).
+- **Imágenes hero auto-hospedadas**: las 3 imágenes hero que antes venían de
+  `lh3.googleusercontent.com` (`index.html`, `servicios.html`, `nosotros.html`) se
+  descargaron, se re-comprimieron a JPEG calidad 80 (~32-36 KB c/u) y se guardaron
+  localmente como `assets/images/hero-home.jpg`, `hero-servicios.jpg`,
+  `hero-nosotros.jpg`. Cada `<img>` ahora lleva `width`/`height` explícitos y
+  `fetchpriority="high"` + `loading="eager"`, y cada página tiene un
+  `<link rel="preload" as="image">` de su hero en `<head>`. Se quitó la clase
+  `reveal` del wrapper de la imagen hero en `index.html` y `nosotros.html` (la
+  imagen LCP ya no espera a JS + animación para pintarse). El resto de las ~40
+  fotos de stock externas del sitio (tarjetas de servicios/productos, etc.) se
+  dejaron sin tocar — no son LCP y quedan fuera de este alcance. **Decisión de
+  Tony**: reemplaza la elección previa de usar solo fotos externas, específicamente
+  para estas 3 imágenes hero.
+- **Fonts sin bloquear render**: en las 6 páginas, los 2 `<link rel="stylesheet">`
+  de Google Fonts (Lato + Material Symbols) se cambiaron al patrón estándar
+  preload + `media="print" onload` + `<noscript>` fallback — dejan de bloquear el
+  primer render sin cambiar qué se carga. El script `cdn.tailwindcss.com` se dejó
+  intacto (CLAUDE.md exige Tailwind solo vía CDN; agregarle `defer` causaría FOUC
+  severo por ser un compilador JIT).
+- **Limitación conocida — cache lifetimes**: el insight "Use efficient cache
+  lifetimes" (~778 KiB) no se puede resolver desde este repo: GitHub Pages sirve
+  con `Cache-Control` fijo por defecto y no hay forma de configurar headers
+  (no hay `_headers`/config equivalente). La mitigación real aplicada fue bajar
+  el peso de los assets pesados (logo + heroes) para que el cache corto importe
+  menos.
+- **Sin verificación visual en navegador**: la extensión Claude-in-Chrome no
+  estaba conectada en esta sesión, así que no se pudo hacer un chequeo visual en
+  vivo (`file://` o localhost) antes de publicar. Se verificó por lectura de
+  código: HTML balanceado (`<noscript>` abre/cierra 1:1 en las 6 páginas), las
+  4 imágenes nuevas existen en `assets/images/`, y no quedan referencias a
+  `lh3.googleusercontent.com` ni al cyan viejo (`grep` en todo el repo). Recomendado
+  que Tony confirme visualmente tras el deploy.
+
+Última actualización anterior: **Favicons + logo real + paleta sin negro (2026-08-03/04)**
 
 - **Favicons**: Tony entregó `assets/favicon_io.zip` (favicon.io) →
   extraído a `assets/icons/` (svg + apple-touch-icon + 32/16px png +

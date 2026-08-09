@@ -85,13 +85,33 @@ archivo actualizados al cerrar cada segmento.
   class="material-symbols-outlined">`) para iconos genéricos de UI; el
   ícono de WhatsApp del botón flotante se conserva como SVG inline propio
   por reconocibilidad de marca.
-- El sitio ahora usa ~40 fotos de stock externas (`lh3.googleusercontent.com`,
-  URLs de los mockups de Stitch) en hero de home/nosotros — decisión
-  explícita de Tony (antes el sitio era 100% SVG inline, cero imágenes de
-  terceros). Todas llevan `alt` descriptivo.
+- El sitio usa ~40 fotos de stock externas (`lh3.googleusercontent.com`,
+  URLs de los mockups de Stitch) en tarjetas de servicios/productos, etc.
+  — decisión explícita de Tony (antes el sitio era 100% SVG inline, cero
+  imágenes de terceros). Todas llevan `alt` descriptivo. **Excepción
+  (2026-08-09, fix de rendimiento):** las 3 imágenes hero de `index.html`,
+  `servicios.html` y `nosotros.html` se auto-hospedan en
+  `assets/images/hero-home.jpg` / `hero-servicios.jpg` / `hero-nosotros.jpg`
+  (descargadas y recomprimidas a JPEG calidad 80) — eran el elemento LCP de
+  sus páginas y depender de un dominio externo sin control de peso/caché
+  las hacía el mayor cuello de botella de Performance en Lighthouse. El
+  resto de las fotos de stock (no-LCP) se mantiene externo sin cambios.
 - No reproducir logotipos reales de clientes (Invex, Iberdrola/Cox, etc.)
   sin autorización explícita — usar tratamiento tipográfico en texto hasta
   tener permiso y archivo de logo oficial.
+- **Carga de Google Fonts (2026-08-09, fix de rendimiento):** en las 6
+  páginas, los `<link rel="stylesheet">` de Lato y Material Symbols
+  Outlined usan el patrón preload + `media="print" onload="this.media='all'"`
+  + `<noscript>` de respaldo, para no bloquear el primer render. Si se
+  agrega o cambia una fuente de Google Fonts, replicar el mismo patrón de
+  4 líneas (preload + stylesheet-swap + noscript) en las 6 páginas, no un
+  `<link rel="stylesheet">` plano. `cdn.tailwindcss.com` se mantiene sin
+  `defer` a propósito — es un compilador JIT, deferirlo causa FOUC.
+- Imagen LCP de cada página (heros de home/servicios/nosotros): siempre
+  con `width`/`height` explícitos, `fetchpriority="high"`, `loading="eager"`,
+  un `<link rel="preload" as="image">` correspondiente en `<head>`, y
+  **sin** la clase `.reveal` (el fade-in de scroll no debe retrasar el
+  primer pintado del elemento LCP).
 
 ## Comandos frecuentes
 

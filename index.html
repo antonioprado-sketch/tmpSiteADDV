@@ -12,11 +12,18 @@
 <link rel="alternate icon" type="image/x-icon" href="./assets/icons/favicon.ico" />
 <link rel="manifest" href="./assets/icons/site.webmanifest" />
 <link rel="canonical" href="https://www.addv.mx/" />
+<link rel="preload" as="image" href="./assets/images/hero-home.jpg" fetchpriority="high" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+</noscript>
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -117,7 +124,7 @@
 <section class="relative bg-surface-container-lowest overflow-hidden border-b border-outline-variant">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-[80px] grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
 <div class="space-y-lg">
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface">Agregamos <span class="text-[#00BEEF]">valor real</span> a tu negocio.</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-on-surface">Agregamos <span class="text-secondary">valor real</span> a tu negocio.</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
 Consultoría TI y transformación digital para empresas mexicanas de banca, energía y fintech: desarrollo de software a la medida, soluciones cloud, analítica de datos y UX/UI bajo metodologías ágiles.
 </p>
@@ -126,8 +133,8 @@ Consultoría TI y transformación digital para empresas mexicanas de banca, ener
 <a class="bg-transparent border border-outline text-on-surface font-label-md text-label-md px-lg py-md rounded hover:bg-surface-container-low transition-colors" href="./servicios.html">Ver servicios</a>
 </div>
 </div>
-<div class="relative rounded-xl overflow-hidden shadow-[0px_12px_32px_rgba(15,23,42,0.1)] reveal">
-<img class="w-full h-[320px] md:h-[400px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdKE7UzWw3KWIuFzkQN094s5aFu1ccF3K5kk0oFC5q3uywf-faOFEiZzk7h4pwgk5ibfZOyLMU1AfEBHql-LhkQcngmREkM1_gaAx_dusJdopE8LqhWakmvTOFxA-YjY-geK8idyrMr3cQRm_PYxR_fM_hY1gntxmeA8r0fHS2ohYx2uniuFXGDXsM_oUt4LGe1xBBGjssDb-lDib-KPljSl6cMmqNxtj1h9YfN3XuGQMtC7nI1DQw7w" alt="Servidor empresarial de alto rendimiento con iluminación LED azul, representando la infraestructura tecnológica de ADDV" />
+<div class="relative rounded-xl overflow-hidden shadow-[0px_12px_32px_rgba(15,23,42,0.1)]">
+<img class="w-full h-[320px] md:h-[400px] object-cover" src="./assets/images/hero-home.jpg" width="512" height="279" fetchpriority="high" loading="eager" alt="Servidor empresarial de alto rendimiento con iluminación LED azul, representando la infraestructura tecnológica de ADDV" />
 </div>
 </div>
 </section>
