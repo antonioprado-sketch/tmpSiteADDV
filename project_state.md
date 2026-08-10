@@ -1,6 +1,39 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **Fix de rendimiento PageSpeed Insights (2026-08-09)**
+Última actualización: **Segunda ronda de fix de rendimiento (2026-08-09, tarde)**
+
+- **Contexto**: tras la primera ronda (ver abajo), Lighthouse mobile de `index.html`
+  subió de Performance 57→57 (aún 57, pero render-blocking savings bajó de 7.78s a
+  450ms, cache lifetimes de 778 a 48 KiB, image delivery de 862 a 31 KiB — mejoras
+  reales aunque el score compuesto no se movió todavía) y agregó "Reduce unused
+  JavaScript — 38 KiB".
+- **Plugin `container-queries` de Tailwind CDN eliminado** (`?plugins=forms,container-queries`
+  → `?plugins=forms`) en las 6 páginas — cero uso de `@container`/`@sm:` etc. en todo
+  el repo, confirmado por grep. Reduce el JS no usado sin tocar el modo de carga
+  (sigue siendo CDN).
+- **Preconnect a `cdn.tailwindcss.com` agregado** en las 6 páginas (faltaba).
+- **`defer` en el script de Tailwind CDN — probado y revertido.** Se intentó
+  agregar `defer` al `<script src="https://cdn.tailwindcss.com...">` (y al
+  `<script id="tailwind-config">` en paralelo, para preservar el orden de
+  ejecución) para dejar de bloquear el render. **QA visual en vivo (Chrome, vía
+  extensión) mostró una regresión real, no solo un flash cosmético**: los tokens
+  custom del config (`gap-lg`, `margin-desktop`, etc. — cualquier spacing/fontSize
+  que no existe en la escala default de Tailwind) dejaban de aplicarse — el nav
+  quedaba con texto pegado sin espaciado. Causa probable: el JIT del CDN escanea
+  el DOM antes de que el config custom quede asignado cuando ambos scripts se
+  difieren, y no reprocesa correctamente los tokens custom después. **Revertido
+  en las 6 páginas** (sin `defer` en ninguno de los dos scripts). El bloqueo de
+  Tailwind CDN en el render queda como limitación conocida — no se puede resolver
+  sin cambiar cómo se carga Tailwind, lo cual viola la regla "Tailwind (solo CDN
+  si se usa)" de `CLAUDE.md`.
+- **QA visual confirmado** (extensión Chrome conectada esta sesión, contra
+  `http://127.0.0.1:8123` servido con `python -m http.server`): contraste
+  "valor real" en azul correcto, las 3 imágenes hero cargan de inmediato sin
+  fade-in, logo nítido a tamaño real, formulario de `contacto.html` con estilos
+  del plugin `forms` intactos, nav/footer sin regresiones, cero errores de
+  consola en ninguna página revisada.
+
+Última actualización anterior: **Fix de rendimiento PageSpeed Insights (2026-08-09)**
 
 - **Contexto**: Lighthouse mobile de `index.html` daba Performance 57 (FCP 8.6s, LCP
   10.8s), con 3 causas raíz: cadena de recursos bloqueantes en `<head>` (2 stylesheets

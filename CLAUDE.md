@@ -105,8 +105,17 @@ archivo actualizados al cerrar cada segmento.
   + `<noscript>` de respaldo, para no bloquear el primer render. Si se
   agrega o cambia una fuente de Google Fonts, replicar el mismo patrón de
   4 líneas (preload + stylesheet-swap + noscript) en las 6 páginas, no un
-  `<link rel="stylesheet">` plano. `cdn.tailwindcss.com` se mantiene sin
-  `defer` a propósito — es un compilador JIT, deferirlo causa FOUC.
+  `<link rel="stylesheet">` plano. `cdn.tailwindcss.com` (y el
+  `<script id="tailwind-config">` que le sigue) se mantienen **sin** `defer`
+  a propósito — probado 2026-08-09 y revertido: al diferir ambos scripts, los
+  tokens custom del config (`gap-lg`, `margin-desktop`, cualquier spacing/
+  fontSize que no existe en la escala default de Tailwind) dejan de aplicarse
+  correctamente (nav sin espaciado, confirmado por QA visual). No es solo
+  riesgo de FOUC — es una regresión funcional real. No volver a intentar
+  `defer` en estos dos scripts sin resolver primero ese problema de timing
+  del config.
+  Preconnect a `cdn.tailwindcss.com` sí está agregado (sin riesgo, no cambia
+  el momento de ejecución).
 - Imagen LCP de cada página (heros de home/servicios/nosotros): siempre
   con `width`/`height` explícitos, `fetchpriority="high"`, `loading="eager"`,
   un `<link rel="preload" as="image">` correspondiente en `<head>`, y
