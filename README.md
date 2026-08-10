@@ -7,12 +7,14 @@ para GitHub Pages.
 
 Ninguno para desarrollar (no requiere Node, npm, Docker, ni ningún
 proceso de build). **Sí requiere conexión a internet al abrir el sitio**
-(en `file://` o publicado): carga Tailwind CDN, Google Fonts y ~37 fotos
-de stock externas (tarjetas de servicios/productos, etc.). Antes del
-rebrand de 2026-08-03 el sitio funcionaba 100% offline; ya no. Las 3
-imágenes hero (home/servicios/nosotros) sí son locales
-(`assets/images/hero-*.jpg`, desde 2026-08-09) por ser el elemento LCP
-de cada página.
+(en `file://` o publicado): carga Google Fonts y ~37 fotos de stock
+externas (tarjetas de servicios/productos, etc.). Antes del rebrand de
+2026-08-03 el sitio funcionaba 100% offline; ya no. Las 3 imágenes hero
+(home/servicios/nosotros) sí son locales (`assets/images/hero-*.jpg`,
+desde 2026-08-09) por ser el elemento LCP de cada página. El CSS de
+Tailwind también es local (`assets/css/tailwind.css`, compilado una sola
+vez — ver `CLAUDE.md` y `build/tailwind/README.md` si necesitás
+regenerarlo) desde 2026-08-09; ya no depende de `cdn.tailwindcss.com`.
 
 ## Cómo verlo localmente
 

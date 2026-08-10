@@ -1,6 +1,39 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **Segunda ronda de fix de rendimiento (2026-08-09, tarde)**
+Última actualización: **Tailwind CDN reemplazado por CSS estático compilado (2026-08-09, noche)**
+
+- **Contexto**: tras dos rondas de fixes (ver abajo), el score de Lighthouse
+  mobile seguía clavado en 57 con FCP/LCP en 8.6s exactos en 3+ corridas.
+  Causa confirmada: el script `cdn.tailwindcss.com` (JIT, síncrono/
+  bloqueante) — todos los demás insights (fonts, cache, imágenes) ya
+  estaban resueltos y su aporte al tiempo total era chico comparado con
+  Tailwind CDN bajo Slow 4G.
+- **Decisión explícita de Tony**: reemplazar el CDN por un CSS estático
+  compilado una sola vez, cambiando la regla no-negociable de
+  `CLAUDE.md` ("Tailwind solo CDN" → "Tailwind CSS estático commiteado").
+- **Implementación**: Tailwind CLI v3 + `@tailwindcss/forms` instalados
+  temporalmente en `scratchpad` (no en el repo), config equivalente al
+  bloque JS que existía inline en cada página, `content` apuntando a las
+  6 páginas HTML reales del repo. Output minificado (~26 KB) commiteado
+  como `assets/css/tailwind.css`. En las 6 páginas, el
+  `<script src="cdn.tailwindcss.com">` + `<script id="tailwind-config">`
+  se reemplazaron por un `<link rel="stylesheet" href="./assets/css/tailwind.css">`;
+  se quitó también el preconnect a `cdn.tailwindcss.com` (ya no aplica).
+  El config/input fuente se commitearon en `build/tailwind/` (no
+  `node_modules`, ver `.gitignore` ahí) para que la regeneración sea
+  reproducible — ver `build/tailwind/README.md`.
+- **QA visual confirmado** (extensión Chrome, contra
+  `http://127.0.0.1:8123`): las 6 páginas renderizan igual que antes
+  (nav con espaciado correcto, cards, botones, formulario con plugin
+  `forms`, iconos), cero errores de consola. Esto es lo que **falló** en
+  los intentos previos de `defer` — el CSS estático no tiene ese problema
+  porque no depende de timing de scripts en el navegador.
+- **Pendiente**: correr PageSpeed de nuevo sobre `www.addv.mx` tras
+  publicar, para confirmar el impacto real en el score/FCP/LCP — no se
+  puede prometer el número exacto de antemano, solo que se elimina la
+  causa raíz identificada.
+
+Última actualización anterior: **Segunda ronda de fix de rendimiento (2026-08-09, tarde)**
 
 - **Contexto**: tras la primera ronda (ver abajo), Lighthouse mobile de `index.html`
   subió de Performance 57→57 (aún 57, pero render-blocking savings bajó de 7.78s a

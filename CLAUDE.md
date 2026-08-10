@@ -15,10 +15,12 @@ Todo el proyecto debe abrirse haciendo doble clic sobre `index.html`
 - JS en módulos ES6 nativos (`<script type="module">`), sin compilación.
 - Todas las rutas son relativas (`./assets/...`), nunca absolutas
   (`/assets/...`) — GitHub Pages puede publicarse desde subdirectorio.
-- Tecnologías permitidas: HTML5, CSS3, Tailwind (solo CDN si se usa),
-  JS ES6+, GSAP/AOS/Lenis/Swiper/Splide/Anime.js/Three.js (con
-  justificación de valor)/Lottie/partículas ligeras, FontAwesome, Lucide,
-  Material Symbols, Google Fonts.
+- Tecnologías permitidas: HTML5, CSS3, Tailwind (CSS estático compilado
+  una sola vez y commiteado al repo — ver abajo, cambio explícito de Tony
+  2026-08-09; antes era "solo CDN si se usa"), JS ES6+,
+  GSAP/AOS/Lenis/Swiper/Splide/Anime.js/Three.js (con justificación de
+  valor)/Lottie/partículas ligeras, FontAwesome, Lucide, Material Symbols,
+  Google Fonts.
 - El formulario de contacto no tiene backend: valida en cliente y abre un
   link `https://wa.me/525539944697` con el mensaje codificado.
 
@@ -52,18 +54,34 @@ archivo actualizados al cerrar cada segmento.
 ## Convenciones de código
 
 - **Sistema visual (2026-08-03, rebrand explícito de Tony; paleta sin
-  negro desde 2026-08-04):** Tailwind CDN
-  (`cdn.tailwindcss.com?plugins=forms,container-queries`) + un bloque
-  `<script id="tailwind-config">` con la config Material Design 3 (paleta
-  primario `#03285B` + azul `#0058be`, radios, spacing, tipografía).
-  `primary`/`tertiary` eran `#000000` (negro puro) — sustituidos por
-  `#03285B` por instrucción explícita de Tony ("no uses colores negros").
-  Ya no
-  existe `assets/css/*.css` propio — se eliminó (tokens.css, main.css,
-  home.css, etc.) porque Tailwind CDN cubre todo. El bloque de config se
-  repite **idéntico** en las 6 páginas HTML (mismo criterio de repetición
-  manual que nav/footer, no hay motor de plantillas) — si cambia la
-  paleta/tipografía, hay que editar las 6 páginas.
+  negro desde 2026-08-04):** paleta Material Design 3 (primario `#03285B`
+  + azul `#0058be`, radios, spacing, tipografía). `primary`/`tertiary`
+  eran `#000000` (negro puro) — sustituidos por `#03285B` por instrucción
+  explícita de Tony ("no uses colores negros").
+- **CSS de Tailwind: compilado estático, no CDN (2026-08-09, fix de
+  rendimiento, cambio explícito de Tony).** El script
+  `cdn.tailwindcss.com` era el mayor cuello de botella de Performance en
+  Lighthouse (JIT compilando en el navegador, síncrono/bloqueante) — se
+  probó `defer` dos veces y ambas rompieron los tokens custom del config
+  (ver historial más abajo). La solución fue generar el CSS una sola vez
+  con Tailwind CLI v3 (herramienta externa, corrida por Claude en
+  `scratchpad`, **no** instalada en el repo — mismo criterio que
+  PowerShell/`System.Drawing` para comprimir imágenes) a partir de un
+  `tailwind.config.js` equivalente al bloque JS que existía antes, con
+  `content` apuntando a los 6 `*.html` y el plugin `@tailwindcss/forms`.
+  El resultado (`assets/css/tailwind.css`, ~26 KB minificado) se commiteó
+  al repo y se referencia con un `<link rel="stylesheet">` normal — el
+  sitio sigue sin Node/npm/build para abrirse o publicarse, exactamente
+  igual que antes. **Si se agrega una clase de Tailwind nueva que no
+  esté ya en `assets/css/tailwind.css`, hay que regenerar el archivo**
+  (repetir el proceso de compilación una vez, no hay watch/build
+  corriendo) — de lo contrario esa clase no tendrá estilo. Ya no existe
+  `assets/css/*.css` propio previo a este cambio (tokens.css, main.css,
+  home.css, etc. — se habían eliminado en el rebrand porque Tailwind CDN
+  cubría todo; ahora `assets/css/tailwind.css` es el único CSS generado
+  del sitio). El `<link>` al CSS se repite **idéntico** en las 6 páginas
+  HTML (mismo criterio de repetición manual que nav/footer, no hay motor
+  de plantillas).
 - Excepciones fuera de Tailwind, en un `<style>` inline por página (mismo
   bloque repetido en las 6): `.reveal`/`.is-visible` (scroll reveal),
   `.nav-mobile`/`.is-open` (menú móvil, ver abajo), `[aria-invalid="true"]`
@@ -105,17 +123,12 @@ archivo actualizados al cerrar cada segmento.
   + `<noscript>` de respaldo, para no bloquear el primer render. Si se
   agrega o cambia una fuente de Google Fonts, replicar el mismo patrón de
   4 líneas (preload + stylesheet-swap + noscript) en las 6 páginas, no un
-  `<link rel="stylesheet">` plano. `cdn.tailwindcss.com` (y el
-  `<script id="tailwind-config">` que le sigue) se mantienen **sin** `defer`
-  a propósito — probado 2026-08-09 y revertido: al diferir ambos scripts, los
-  tokens custom del config (`gap-lg`, `margin-desktop`, cualquier spacing/
-  fontSize que no existe en la escala default de Tailwind) dejan de aplicarse
-  correctamente (nav sin espaciado, confirmado por QA visual). No es solo
-  riesgo de FOUC — es una regresión funcional real. No volver a intentar
-  `defer` en estos dos scripts sin resolver primero ese problema de timing
-  del config.
-  Preconnect a `cdn.tailwindcss.com` sí está agregado (sin riesgo, no cambia
-  el momento de ejecución).
+  `<link rel="stylesheet">` plano. **Historial:** antes de compilar Tailwind
+  a CSS estático (ver arriba), se probó `defer` en el script
+  `cdn.tailwindcss.com` dos veces (2026-08-09) — ambas rompieron los tokens
+  custom del config (`gap-lg`, `margin-desktop`, etc. dejaban de aplicarse,
+  nav sin espaciado, confirmado por QA visual). Ya no aplica: no hay script
+  de Tailwind que diferir, el CSS se sirve como `<link>` normal.
 - Imagen LCP de cada página (heros de home/servicios/nosotros): siempre
   con `width`/`height` explícitos, `fetchpriority="high"`, `loading="eager"`,
   un `<link rel="preload" as="image">` correspondiente en `<head>`, y
@@ -135,6 +148,11 @@ node --check assets/js/nav.js
 node --check assets/js/reveal.js
 node --check assets/js/contacto.js
 ```
+
+Regenerar `assets/css/tailwind.css` (solo si agregaste una clase de
+Tailwind nueva que el archivo actual no cubre): ver
+`build/tailwind/README.md`. No es parte del sitio en producción, es un
+paso manual ocasional — no hay build corriendo en el repo.
 
 No hay `npm test` ni suite de pruebas automatizada todavía — este es un
 sitio de contenido/marketing sin lógica de negocio compleja. Si en un
