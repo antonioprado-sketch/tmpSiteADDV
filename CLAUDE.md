@@ -94,7 +94,10 @@ archivo actualizados al cerrar cada segmento.
   permitidas.
 - Nav y footer se repiten manualmente en cada página HTML (no hay motor de
   plantillas en un sitio 100% estático) — al editar nav/footer, replicar el
-  cambio en todas las páginas existentes.
+  cambio en todas las páginas existentes. **Desde 2026-08-10 son 7 archivos**,
+  no 6: se agregó `404.html` (servido automático por GitHub Pages para rutas
+  inexistentes) con el mismo header/footer/nav/botón de WhatsApp/`main.js`
+  que las 6 páginas de contenido — replicar cambios de nav/footer también ahí.
 - Marca: logo real `assets/images/logo-addv.png` (wordmark ADDV
   navy+cyan, entregado por Tony 2026-08-04) en `<img>` en header/footer
   de las 6 páginas — reemplaza el mark "+V" en SVG inline que se usaba
@@ -134,6 +137,49 @@ archivo actualizados al cerrar cada segmento.
   un `<link rel="preload" as="image">` correspondiente en `<head>`, y
   **sin** la clase `.reveal` (el fade-in de scroll no debe retrasar el
   primer pintado del elemento LCP).
+
+## SEO técnico (2026-08-10)
+
+- **Canonical**: todas las `<link rel="canonical">` usan `.html` (ej.
+  `https://www.addv.mx/servicios.html`), igual que `sitemap.xml` y la nav
+  interna — GitHub Pages no reescribe rutas sin extensión para archivos
+  planos en la raíz. Si se agrega una página nueva, su canonical debe
+  llevar `.html` desde el inicio; no repetir el bug histórico (5 de las 6
+  páginas lo tuvieron mal hasta esta fecha).
+- **JSON-LD**: cada página tiene `Organization` (`<script
+  type="application/ld+json">` en `<head>`, con `@id
+  https://www.addv.mx/#organization`). `nosotros.html` y `contacto.html`
+  agregan 2 `ProfessionalService` (Polanco/Morelia) porque ahí el NAP es
+  contenido visible; `servicios.html` agrega 7 `Service` (uno por tarjeta)
+  + `BreadcrumbList`; el resto solo agrega `BreadcrumbList`. No agregar
+  `FAQPage`/`AggregateRating`/`Review` a menos que exista contenido real
+  correspondiente (FAQ real, calificaciones numéricas reales) — structured
+  data sin contenido visible correspondiente es penalizable en Search
+  Console. Validar sintaxis con `node -e "JSON.parse(...)"` o el Rich
+  Results Test de Google antes de publicar cualquier cambio a estos
+  bloques.
+- **Open Graph / Twitter Card**: las 6 páginas reutilizan literalmente su
+  `<title>`/meta description ya existentes en `og:title`/`og:description`/
+  `twitter:title`/`twitter:description`. La imagen social compartida es
+  `assets/images/og-default.jpg` (1200×630, generada por
+  PowerShell/`System.Drawing`, fondo claro `#f7f9fb` — **no navy**, porque
+  el logo es navy+cyan y se vuelve ilegible sobre fondo navy). Si cambia el
+  logo o el branding, regenerar esta imagen.
+- **`llms.txt`** en la raíz: resumen del sitio para crawlers de LLMs/AI
+  search. Actualizar si cambia la lista de páginas o su propósito.
+  `robots.txt` tiene un comentario apuntando a este archivo (no es
+  estándar, es solo referencia).
+- **`404.html`**: página de error personalizada, servida automática por
+  GitHub Pages. Debe llevar siempre `<meta name="robots" content="noindex,
+  follow">` — nunca debe indexarse ni agregarse a `sitemap.xml`.
+- **Google Search Console**: aún no verificado (pendiente de que Tony
+  genere la propiedad y comparta el token `google-site-verification` o el
+  archivo de verificación). Una vez verificado, enviar `sitemap.xml` desde
+  la consola y usar "Inspección de URLs → Solicitar indexación" por página.
+- **Fuera de alcance actual** (decisión explícita de Tony, 2026-08-10):
+  ampliar contenido de `productos.html`/`contacto.html` y agregar
+  analítica (GA4/Plausible) — no implementar sin pedir luz verde de nuevo,
+  son entregas separadas.
 
 ## Comandos frecuentes
 

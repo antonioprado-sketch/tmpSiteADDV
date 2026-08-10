@@ -65,10 +65,13 @@ python3 -m http.server 8000
 │   │                       contacto.html — validación + WhatsApp).
 │   │                       Sin cambios en el rebrand.
 │   ├── images/, icons/, fonts/, videos/
+├── 404.html              Página de error personalizada (GitHub Pages la sirve
+│                         automático; noindex, mismo header/footer que las 6)
 ├── prompts/
 │   └── image-prompts.md
 ├── robots.txt
 ├── sitemap.xml
+├── llms.txt              Resumen del sitio para crawlers de LLMs/AI search
 ├── favicon.ico
 ├── project_state.md       Estado del proyecto, decisiones tomadas/pendientes
 ├── CLAUDE.md               Contexto operativo para trabajo futuro en el repo
@@ -89,3 +92,14 @@ producción.
 
 Ver `project_state.md` para el detalle completo de qué está construido,
 qué decisiones ya se tomaron, y qué queda pendiente de confirmar.
+
+## SEO
+
+Piso técnico de SEO implementado (2026-08-10): canonical corregidas a
+`.html` en las 6 páginas, datos estructurados JSON-LD (Organization,
+ProfessionalService, Service, BreadcrumbList), Open Graph/Twitter Card con
+imagen social (`assets/images/og-default.jpg`), `llms.txt` para crawlers de
+IA, y `404.html` personalizado. **Pendiente**: verificar el dominio en
+Google Search Console (requiere que el dueño del sitio genere la propiedad
+y comparta el token) para poder enviar `sitemap.xml` y solicitar indexación
+manual. Detalle completo en `project_state.md` y `CLAUDE.md`.

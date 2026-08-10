@@ -1,6 +1,72 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **Tailwind CDN reemplazado por CSS estático compilado (2026-08-09, noche)**
+Última actualización: **SEO técnico + AI-search readiness (2026-08-10)**
+
+- **Contexto**: auditoría SEO solicitada por Tony (indexación en Google,
+  visibilidad en búsquedas de IA, ranking en queries de "desarrollo de
+  software / empresa TI"). Se aclaró explícitamente que nadie puede
+  garantizar el primer lugar en Google (depende de factores externos:
+  autoridad de dominio, backlinks, competencia, tiempo) — este trabajo
+  cubre el piso técnico de SEO, que sí es controlable desde el repo.
+- **Bug crítico encontrado y corregido**: 5 de las 6 páginas
+  (`servicios.html`, `productos.html`, `casos-exito.html`, `nosotros.html`,
+  `contacto.html`) tenían `<link rel="canonical">` apuntando a URLs sin
+  `.html` (ej. `/servicios`) que no existen en GitHub Pages (no hay
+  reescritura de rutas para archivos planos en la raíz) — casi seguro
+  devolvían 404 y confundían la indexación. Estandarizado: **todas las
+  canonical usan `.html`**, igual que `sitemap.xml` y la navegación interna.
+- **Link roto adicional corregido**: las 6 páginas tenían
+  `<a href="https://www.addv.mx/aviso-privacidad">` en el footer — ese
+  archivo nunca existió. Se quitó el `<a>`, queda como texto plano
+  ("Aviso de privacidad · Términos y condiciones") hasta que exista el
+  documento legal real (pendiente, decisión de Tony).
+- **JSON-LD structured data agregado** (schema.org, `<script
+  type="application/ld+json">` en `<head>`): `Organization` en las 6
+  páginas; `ProfessionalService` (oficinas Polanco y Morelia, con NAP
+  tomado literal del footer) solo en `nosotros.html` y `contacto.html`;
+  `Service` (7 nodos, uno por tarjeta) + `BreadcrumbList` en
+  `servicios.html`; `BreadcrumbList` en `productos.html`,
+  `casos-exito.html`, `nosotros.html`, `contacto.html`. No se agregó
+  `FAQPage` ni `AggregateRating`/`Review` — no hay contenido real de FAQ
+  ni calificaciones numéricas en el sitio, y fabricarlos sería structured
+  data engañoso ante Google. Todos los bloques validados con
+  `JSON.parse` (sintaxis correcta).
+- **Open Graph + Twitter Card agregado** en las 6 páginas, reutilizando
+  literalmente el `<title>`/meta description ya existentes por página.
+  Se generó `assets/images/og-default.jpg` (1200×630, ~28 KB) vía
+  PowerShell/`System.Drawing` — logo ADDV centrado sobre fondo claro
+  `#f7f9fb` (el color de fondo real del sitio) con una barra de acento en
+  `#0058be`. **Nota de desviación del plan aprobado**: el plan original
+  proponía fondo navy `#03285B`; al generar la imagen se detectó que el
+  wordmark del logo es navy+cyan, por lo que sobre fondo navy el texto
+  del logo se volvía invisible — se usó el fondo claro del sitio en su
+  lugar para que el logo se lea correctamente. Ninguna imagen previa del
+  sitio (heros, logo) era apta para OG tal cual (todas <600px de ancho).
+- **`llms.txt` nuevo** en la raíz (estándar llmstxt.org) con resumen del
+  sitio y sus 6 páginas, para dar contexto legible a crawlers de LLMs
+  (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.).
+- **`robots.txt`**: sin cambios funcionales (`Allow: /` ya permite a todos
+  los bots de IA); se agregó un comentario apuntando a `/llms.txt`.
+- **`404.html` nuevo** en la raíz — GitHub Pages lo sirve automáticamente
+  para rutas inexistentes. Mismo boilerplate (header/footer/nav/WhatsApp/
+  `main.js`) que las 6 páginas, con `<meta name="robots" content="noindex,
+  follow">` (nunca debe indexarse). **Efecto colateral**: la regla de
+  "nav/footer se repite manualmente" pasa de 6 a **7 archivos** — ver
+  `CLAUDE.md`.
+- **Pendiente (bloqueado por dato externo del usuario)**: verificación de
+  Google Search Console — Tony debe crear la propiedad
+  (`https://www.addv.mx/`, tipo "prefijo de URL") y compartir el token
+  `google-site-verification` o el archivo de verificación; con eso se
+  agrega en minutos. Después: enviar `sitemap.xml` desde GSC y usar
+  "Inspección de URLs → Solicitar indexación" en las 6 páginas.
+- **Fuera de alcance de este segmento (decisión explícita de Tony)**:
+  ampliar el copy de `productos.html`/`contacto.html` (contenido delgado,
+  252/199 palabras) y analítica (GA4/Plausible) — quedan como entregas
+  futuras que requieren autorización de copy/ID aparte. Blog/contenido
+  evergreen para autoridad temática también queda fuera, es decisión de
+  negocio mayor con su propio flujo Analizar→Proponer→Confirmar→Implementar.
+
+Última actualización anterior: **Tailwind CDN reemplazado por CSS estático compilado (2026-08-09, noche)**
 
 - **Contexto**: tras dos rondas de fixes (ver abajo), el score de Lighthouse
   mobile seguía clavado en 57 con FCP/LCP en 8.6s exactos en 3+ corridas.

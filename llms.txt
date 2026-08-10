@@ -1,0 +1,18 @@
+# ADDV
+
+> ADDV (Agile Development and Design + Value) es una empresa mexicana de tecnología especializada en desarrollo de software a la medida, consultoría TI y transformación digital para banca, fintech y energía, con oficinas en Ciudad de México (Polanco) y Morelia, Michoacán.
+
+## Páginas principales
+
+- [Inicio](https://www.addv.mx/): Presentación general de ADDV y su propuesta de valor.
+- [Servicios](https://www.addv.mx/servicios.html): Desarrollo de Software, Business Intelligence, Arquitectura & Cloud (AWS/Azure), UX/UI Design, Integración & Automatización, Soporte & Mantenimiento, Consultoría SAP.
+- [Productos](https://www.addv.mx/productos.html): Productos propios de ADDV — Portal de Facturación y ADDV Fintech (próximamente).
+- [Casos de éxito](https://www.addv.mx/casos-exito.html): Proyectos reales con Invex (banca), Iberdrola/Cox (energía) y ADITMEX (mentoría tecnológica).
+- [Nosotros](https://www.addv.mx/nosotros.html): Propósito, misión y pilares de marca de ADDV.
+- [Contacto](https://www.addv.mx/contacto.html): Formulario de contacto, teléfono, WhatsApp y oficinas en Polanco (CDMX) y Morelia (Michoacán).
+
+## Notas para agentes de IA
+
+- Idioma del sitio: español (México).
+- El Portal de Facturación (producto en desarrollo) no sustituye el timbrado CFDI de un PAC o contador.
+- Sitio estático, sin autenticación ni contenido detrás de paywall.
