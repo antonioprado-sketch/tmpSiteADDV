@@ -1,6 +1,83 @@
 # project_state.md — Sitio ADDV (addv.mx)
 
-Última actualización: **SEO técnico + AI-search readiness (2026-08-10)**
+Última actualización: **Auditoría UX/SEO/Neuroventas — sesión pausada, retomar aquí (2026-08-10)**
+
+- **ESTADO AL PAUSAR (actualizado 2026-08-11)**: de los 10 bloques de la
+  auditoría (A–J), **A, B, C, I, H, D, G ya están escritos en los archivos y
+  verificados**. Quedan **E, F, J** — todos diferidos/bloqueados por falta de
+  dato real de Tony, no por falta de implementación.
+- **Bloque D — implementado**: agregado, verbatim, en `servicios.html` dentro
+  de la sección "Nuestro proceso" (después del `<h2>Un enfoque ágil y
+  colaborativo</h2>`, mismo `div.mb-xl.text-center`): *"Cada proyecto en ADDV
+  inicia con un acuerdo de confidencialidad (NDA) para proteger la información
+  de tu negocio."* Clases reutilizadas (`font-body-md text-body-md
+  text-inverse-primary/80 max-w-2xl mx-auto mt-sm`), cero CSS nuevo. Verificado:
+  aparece exactamente 1 vez.
+- **Bloque G — implementado**: botón secundario "Diagnóstico gratuito" agregado
+  en la banda CTA repetida de `index.html`, `servicios.html`, `productos.html`,
+  `casos-exito.html`, `nosotros.html` (no en `contacto.html`, es la página
+  destino), envuelto junto al botón primario en `div.flex flex-wrap gap-md`.
+  Enlaza a `https://wa.me/525539944697?text=...` con mensaje precargado sobre
+  la oferta real confirmada por Tony: "Evaluación del modelo de negocio y una
+  Prueba de concepto (PoC) de 40 horas orientada a la solución." Estilo botón
+  outline ya existente (`bg-transparent border border-outline text-on-surface
+  ...`), cero clases nuevas. Verificado: 1 aparición por página en las 5, sin
+  romper balance de `<section>`/`<div>`.
+- **Bloque E (testimonios)**: Tony respondió explícitamente "las mando
+  después" — diferido, no volver a preguntar hasta que él los mande.
+- **Bloque F (cifras duras por caso)**: Tony respondió explícitamente "después
+  la actualizo" — diferido, no volver a preguntar hasta que él las dé.
+- **Bloque J (fotos propias en servicios.html)**: sigue bloqueado, no se le
+  preguntó todavía (una respuesta de texto no lo desbloquea, necesita el
+  archivo real o presupuesto de stock).
+
+Última actualización anterior: **Auditoría UX/SEO/Neuroventas — Bloques A, B, C, I (2026-08-10)**
+
+- **Contexto**: Tony pidió auditoría completa del sitio (UX/UI, SEO/posicionamiento,
+  contenido con neuroventas para conversión). Se presentó hallazgo + plan de 10
+  bloques (A–J); Tony aprobó implementar los 4 que no requieren dato de negocio
+  nuevo. Los otros 6 (testimonios reales, cifras duras por caso, certificaciones
+  de seguridad/compliance, copy de micro-conversión, waitlist en productos, fotos
+  propias) quedan bloqueados hasta que Tony confirme el dato correspondiente —
+  regla anti-suposición del protocolo.
+- **Bloque A — Prueba social en home**: nueva banda de 3 cifras (15+ años, 500+
+  proyectos, 250+ clientes corporativos) en `index.html`, entre la sección
+  "Partners" y el teaser de servicios. No es dato nuevo — son las mismas cifras
+  ya publicadas en `nosotros.html` (siguen sin verificar por Tony si son exactas,
+  ver pendiente histórico), solo se promovieron a la página de mayor tráfico.
+  Sin `<h2>`/`<h3>` (mismo criterio que la banda de "Partners" contigua, evita
+  saltos de jerarquía) — solo `<span>` con los mismos tokens tipográficos.
+- **Bloque B — Internal linking casos→servicios**: 5 de los 7 casos de
+  `casos-exito.html` (Invex, Iberdrola/Cox → UX/UI Design; Energía & Utilities
+  → Business Intelligence; Servicios Financieros → Integración & Automatización;
+  Logística → Arquitectura & Cloud) ahora enlazan al ancla real del servicio
+  correspondiente en `servicios.html`. ADITMEX y Emprendedores se dejaron sin
+  link — ninguno de los 7 servicios reales corresponde 1:1, forzar el match
+  habría sido enlace engañoso.
+- **Bloque C — Footer/Navegación**: se agregó el link "Contacto" (faltaba) a la
+  lista de Navegación del footer en las **7 páginas** (las 6 + `404.html`) —
+  antes solo tenía Servicios/Productos/Casos de éxito/Nosotros.
+- **Bloque I — SEO local on-page**: se agregó mención textual de las oficinas
+  (Ciudad de México/Polanco y Morelia, Michoacán) al párrafo hero de
+  `nosotros.html` y `servicios.html` — dato ya público en footer/JSON-LD de
+  todas las páginas, ahora también visible en el copy principal de esas dos.
+- **Verificación**: balance de `<section>` en `index.html` (6/6), los 5 anchors
+  de servicio usados en Bloque B confirmados por grep contra los `id` reales de
+  `servicios.html`, las 7 páginas con exactamente 5 `<li>` en Navegación del
+  footer, `node --check` en los 4 módulos JS (sin cambios este segmento, sigue
+  sin errores). Cero clases Tailwind nuevas usadas — todas reutilizadas de las
+  6 páginas existentes, no se requirió regenerar `assets/css/tailwind.css`.
+- **Bloque H — waitlist en productos.html: implementado también** (mismo día,
+  después de este cierre de segmento). CTA "Sé el primero en probarlo" en las
+  2 tarjetas de producto, enlazando a WhatsApp con mensaje precargado
+  específico por producto. No requirió dato de negocio nuevo — reutiliza el
+  mismo número de WhatsApp del sitio, sin afirmar hechos nuevos sobre los
+  productos.
+- **Pendiente al momento de este cierre**: ver sección "ESTADO AL PAUSAR" al
+  principio de este archivo — D y G aprobados pero no escritos; E y F
+  diferidos por Tony; J sin preguntar aún.
+
+Última actualización anterior: **SEO técnico + AI-search readiness (2026-08-10)**
 
 - **Contexto**: auditoría SEO solicitada por Tony (indexación en Google,
   visibilidad en búsquedas de IA, ranking en queries de "desarrollo de
